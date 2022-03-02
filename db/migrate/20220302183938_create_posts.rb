@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :item_name
       t.string :description
       t.integer :price
-      t.string :image_url
       t.integer :category_id
       t.integer :user_id
 
