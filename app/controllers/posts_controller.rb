@@ -4,15 +4,14 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     posts = Post.all
-
     render json: posts
   end
 
   # # GET /posts/1
-  # def show
-  #   post = find_post
-  #   render json: post
-  # end
+  def show
+    post = find_post
+    render json: post
+  end
 
   # # POST /posts
   # def create
@@ -40,15 +39,15 @@ class PostsController < ApplicationController
   #   post.destroy
   # end
 
-  # private
+  private
 
   #   # Use callbacks to share common setup or constraints between actions.
-  #   def find_post
-  #    Post.find(params[:id])
-  #   end
+    def find_post
+     Post.find(params[:id])
+    end
 
   #   # Only allow a list of trusted parameters through.
-  #   def post_params
-  #     params.permit()
-  #   end
+    # def post_params
+    #   params.permit()
+    # end
 end

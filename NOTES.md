@@ -9,3 +9,11 @@ post bt user
 post bt category
 user hm posts
 user hm categories through posts
+
+signup form
+login form
+
+post create form
+delete post
+edit/update post
+read/ show all posts

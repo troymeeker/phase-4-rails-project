@@ -9,10 +9,10 @@ class CategoriesController < ApplicationController
   end
 
   # # GET /categories/1
-  # def show
-  #   category = find_category
-  #   render json: @category
-  # end
+  def show
+    category = find_category
+    render json: category
+  end
 
   # # POST /categories
   # def create
@@ -40,11 +40,11 @@ class CategoriesController < ApplicationController
   #   category.destroy
   # end
 
-  # private
+  private
   #   # Use callbacks to share common setup or constraints between actions.
-  #   def find_category
-  #      Category.find(params[:id])
-  #   end
+    def find_category
+       Category.find(params[:id])
+    end
 
   #   # Only allow a list of trusted parameters through.
   #   def category_params
