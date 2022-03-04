@@ -19,10 +19,18 @@ function App() {
     });
   },[]);
 
+  function handleLogin(user){
+    setUser(user);
+  }
+
+  function handleLogout(){
+    setUser(null);
+  }
+
   if (user) {
-    return <Home/>
+    return <Home onLogout={handleLogout}/>
   } else {
-    return <Login onLogin={setUser} /> 
+    return <Login onLogin={handleLogin} /> 
   }
  
 }

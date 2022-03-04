@@ -1,8 +1,8 @@
 puts "starting seeding"
 
-user1 = User.create(username:"John")
-user2 = User.create(username:"Susan")
-user3 = User.create(username:"Philip")
+user1 = User.create(username:"john", password:"testtest")
+user2 = User.create(username:"susan",password:"testtest")
+user3 = User.create(username:"philip", password:"testtest")
 
 
 cat1 = Category.create(category_type:"Sporting Goods")

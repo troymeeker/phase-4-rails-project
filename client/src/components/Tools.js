@@ -5,8 +5,8 @@ function Tools(){
         <div>
             <p> tools</p>
             <ul>
-                <li>Table Saw</li>
-                <li>Shovel</li>
+                <li>Table Saw <button> EDIT</button><button> DELETE</button></li>
+                <li>Shovel <button> EDIT</button><button> DELETE</button></li>
             </ul>
         </div>
     )

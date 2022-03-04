@@ -5,8 +5,8 @@ function Sporting(){
         <div>
             <p> sporting </p>
             <ul>
-                <li>Bike</li>
-                <li>Golf clubs</li>
+                <li>Bike <button> EDIT</button><button> DELETE</button></li>
+                <li>Golf clubs <button> EDIT</button><button> DELETE</button></li>
             </ul>
         </div>
     )
