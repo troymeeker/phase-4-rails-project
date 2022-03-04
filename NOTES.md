@@ -15,5 +15,5 @@ login form
 
 post create form
 delete post
-edit/update post
+edit/update post content/name
 read/ show all posts
