@@ -1,15 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 
-function Navbar() {
+function Navbar({currentUser, handleLogout}) {
     return (
         <div>
-            <ul>
-             <li><Link to="/">Home</Link></li>
-             <li><Link to="/signup">Signup</Link></li>
-             <li><Link to="/login">Login</Link></li>
-            </ul>
+            <h3>Welcome {currentUser.username}!</h3>
+            <button onClick={handleLogout}>Logout</button>
+          
         </div>
     )
 

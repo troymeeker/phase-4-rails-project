@@ -1,35 +1,61 @@
 import React, { useState } from "react";
 
 
-const Login = ({onLogin}) => {
+const Login = ({setCurrentUser}) => {
     const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    // const [login, setLogin] = useState('')
+
     function loginUser(e){
         e.preventDefault();
-        // console.log("user logged in");
+       
+        // const user = {
+        //     username, 
+        //     password
+        // }
         fetch('/login', {
             method:"POST", 
             headers: {
                 "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username }),
+                body: JSON.stringify({ username, password })
             })
-            .then((res) => res.json())
-            .then((user)=> onLogin(user));
+            .then((res) => {
+                if(res.ok){
+                    res.json().then(user => {
+                         setCurrentUser(user)
+              })
+            } else {
+                res.json().then(errors => { 
+                     console.log(errors)
+                    })
+            }
+           
+    })
+             setUsername('')
+             setPassword('')
     }
 
     return (
         <div>
-            <h1>Login</h1>
+            <h1>Login to Existing Account:</h1>
         <form onSubmit={loginUser}>
             <label>Username:</label>
             <input 
                 type="text" 
-                placeholder="username" 
+                name="username" 
                 value={username} 
+                placeholder="username"
                 onChange={(e) => setUsername(e.target.value)}
                 /><br/>
             <label>Password:</label>
-            <input type="password" name="password" placeholder="password"/><br/>
+            <input
+                type="password"
+                name=""
+                value={password}
+                placeholder="password"
+                onChange={(e) => setPassword(e.target.value)}
+               /><br/>
             <button >Login</button>
 
         </form>

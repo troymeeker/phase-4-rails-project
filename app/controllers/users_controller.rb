@@ -1,31 +1,33 @@
 class UsersController < ApplicationController
+ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
  
-  # GET /users
-  def index
-    users = User.all
-    render json: users
-  end
 
-  # # GET /users/1
+  # def index
+  #   users = User.all
+  #   render json: users
+  # end
+
+  # GET /me
+   # user = find_by(id: session[:user_id])
   def show
-    user = find_by(id: session[:user_id])
-    if user 
-      render json: user
+    if current_user 
+      render json: current_user, status: :ok
     else
-      render json: {error: "Not authorized"}, status: :unauthorized
+      render json: { error: "No active session"}, status: :unauthorized
     end
   end
 
-  # # POST /users
-  # def create
-  #   # user = User.create!(user_params)
-
-  #   # if @user.save
-  #   #   render json: @user, status: :created, location: @user
-  #   # else
-  #   #   render json: @user.errors, status: :unprocessable_entity
-  #   # end
-  # end
+  # POST /signup
+  def create
+    user = User.create(user_params) 
+    if user.valid?
+      session[:user_id] = user.id
+      render json: user, status: :ok
+    else 
+      render json: {error: user.errors}, status: :unprocessable_entity
+    end
+    
+  end
 
   # # PATCH/PUT /users/1
   # def update
@@ -44,13 +46,17 @@ class UsersController < ApplicationController
 
   private
 
+  # def render_unprocessable_entity(exception)
+  #     render json: {error: exception.invalid.record.errors}, status: :unprocessable_entity
+
+  # end
+
   #   # Use callbacks to share common setup or constraints between actions.
     # def find_user
     #   User.find(params[:id])
     # end
 
-  #   # Only allow a list of trusted parameters through.
-  #   def user_params
-  #     params.permit()
-  #   end
+    def user_params
+      params.permit(:username, :password, :password_confirmation)
+    end
 end
