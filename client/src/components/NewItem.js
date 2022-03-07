@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 function NewItem(){
     const [showform, setShowForm] = useState(false)
     function toggleRenderForm(){
@@ -9,18 +8,17 @@ function NewItem(){
 
     function submitNewItem(e){
         e.preventDefault();
-        // console.log('new item');
+       
         // const item = {
         //     item_name: item_name,
         //     description: description, 
         //     price: price
 
         // }
-       
     }
     return( 
         <div >
-            <button onClick={toggleRenderForm}>create a posting</button>
+           {showform? <button onClick={toggleRenderForm}>Hide Form</button> : <button onClick={toggleRenderForm}>Create new posting</button>} 
           { showform? <form onSubmit={submitNewItem} className="newpost">
               <h4>Create New Posting:</h4><br/>
                 <label>Item Name</label>
@@ -29,8 +27,6 @@ function NewItem(){
                 <input name="description" placeholder="description" /><br/>
                 <label>Price</label>
                 <input name="price" placeholder="price"/><br/>
-                {/* <label>Image URL</label>
-                <input name="image" placeholder="url"/><br/> */}
                 <label>Category</label>
                 <select >
                     <option>Sporting</option>

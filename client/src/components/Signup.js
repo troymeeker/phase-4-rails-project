@@ -28,23 +28,22 @@ const Signup = ({setCurrentUser}) => {
                 })
             } else {
                 res.json().then(errors => {
-                    alert(errors)
-                    
+                    alert('Please enter your username and password')
                 })
             }
         })
     }
 
     return (
-        <div className="signup">
-
+        <div className="signup" >
+            <h2 className="header">Create an account</h2>
             <form onSubmit={createUser}>
-                <h1>Create Account</h1>
-                <label className="userFormItem">Username:</label>
+                
+                <label className="userFormItem">Username</label><br/>
                 <input type="text" name="Username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/><br/>
-                <label className="userFormItem">Password:</label>
+                <label className="userFormItem">Password</label><br/>
                 <input type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
-                <label className="userFormItem">Confirm Password:</label>
+                <label className="userFormItem">Confirm Password</label><br/>
                 <input type="password" name="password" placeholder="confirm password" value={passwordConfirmation} onChange={(e)=> setPasswordConfirmation(e.target.value)}/><br/>
 
                 <button type="submit">Create Account</button>

@@ -6,12 +6,10 @@ import Signup from "./Signup";
 function UnauthenticatedUserApp({setCurrentUser}){
     return (
         <div className="unauthpage">
-            <h2>Login or Signup Here</h2>
+            <h3>Login or Signup Here</h3>
        
               <Login setCurrentUser={setCurrentUser}/>
               <Signup setCurrentUser={setCurrentUser}/>
-               
-               
          
         </div>
     )

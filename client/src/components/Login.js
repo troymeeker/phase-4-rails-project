@@ -8,11 +8,6 @@ const Login = ({setCurrentUser}) => {
 
     function loginUser(e){
         e.preventDefault();
-       
-        // const user = {
-        //     username, 
-        //     password
-        // }
         fetch('/login', {
             method:"POST", 
             headers: {
@@ -28,7 +23,7 @@ const Login = ({setCurrentUser}) => {
             } else {
                 res.json().then(errors => { 
                      console.log(errors)
-                     alert("Please create your account below before logging in")
+                     alert("Invalid Username or password")
                     })
             }
            
@@ -39,9 +34,9 @@ const Login = ({setCurrentUser}) => {
 
     return (
         <div className="login">
-            <h1>Login to Existing Account:</h1>
+            <h2 className="header">Login</h2>
         <form onSubmit={loginUser}>
-            <label>Username:</label>
+            <label>Username</label><br/>
             <input 
                 type="text" 
                 name="username" 
@@ -49,7 +44,7 @@ const Login = ({setCurrentUser}) => {
                 placeholder="username"
                 onChange={(e) => setUsername(e.target.value)}
                 /><br/>
-            <label>Password:</label>
+            <label>Password</label><br/>
             <input
                 type="password"
                 name=""
@@ -57,7 +52,7 @@ const Login = ({setCurrentUser}) => {
                 placeholder="password"
                 onChange={(e) => setPassword(e.target.value)}
                /><br/>
-            <button >Login</button>
+            <button >Log in</button>
 
         </form>
         </div>

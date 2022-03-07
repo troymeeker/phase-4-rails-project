@@ -6,7 +6,7 @@ import Free from "./Free";
 function Categories(){
     return (
         <div>
-           <h3>Render all Posts</h3>
+           {/* <h3>Render all Posts</h3> */}
            
             <Sporting/>
             <Tools/>
