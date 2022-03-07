@@ -1,12 +1,16 @@
 import React from "react";
 
 function Free(){
+    function editItem(){
+        console.log('edit item');
+    }
+   
     return (
         <div>
-            <p> free </p>
+            <p> Free </p>
             <ul>
-                <li>Couch <button> EDIT</button><button> DELETE</button></li>
-                <li>Wood Pallets <button> EDIT</button><button> DELETE</button></li>
+                <li>Couch <button onClick={editItem}> EDIT</button><button> DELETE</button></li>
+                <li>Wood Pallets <button onClick={editItem}> EDIT</button><button> DELETE</button></li>
             </ul>
         </div>
     )

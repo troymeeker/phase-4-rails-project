@@ -28,6 +28,7 @@ const Login = ({setCurrentUser}) => {
             } else {
                 res.json().then(errors => { 
                      console.log(errors)
+                     alert("Please create your account below before logging in")
                     })
             }
            
@@ -37,7 +38,7 @@ const Login = ({setCurrentUser}) => {
     }
 
     return (
-        <div>
+        <div className="login">
             <h1>Login to Existing Account:</h1>
         <form onSubmit={loginUser}>
             <label>Username:</label>

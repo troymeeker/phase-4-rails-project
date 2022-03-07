@@ -28,14 +28,15 @@ const Signup = ({setCurrentUser}) => {
                 })
             } else {
                 res.json().then(errors => {
-                    console.log(errors)
+                    alert(errors)
+                    
                 })
             }
         })
     }
 
     return (
-        <div className="userForm">
+        <div className="signup">
 
             <form onSubmit={createUser}>
                 <h1>Create Account</h1>

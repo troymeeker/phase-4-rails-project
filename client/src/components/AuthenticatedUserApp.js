@@ -18,10 +18,10 @@ function AuthenticatedUserApp({currentUser, setCurrentUser}){
     }
 
     return (
-        <div>
+        <div className="authpage">
            <Navbar 
-           currentUser={currentUser}
-           handleLogout={handleLogout}
+            currentUser={currentUser}
+            handleLogout={handleLogout}
            />
           <NewItem /> 
           <Categories />
