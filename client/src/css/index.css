@@ -17,9 +17,10 @@
 }
 .authpage{
   background-color: rgb(216, 221, 219);
-  height: 200vh;
+  height: 250vh;
   width: 100vw;
   padding: 10px;
+  line-height: 35px;
 }
 .unauthpage{
   background-color: blueviolet;
@@ -31,50 +32,76 @@
   background-color: rgb(211, 209, 207);
   line-height: 30px;
   padding: 10px;
-  width: 60%;
+  width: 40%;
   text-align: center;
 
   border: 1.5px solid black;
+  position: relative;
+  left: 30%;
 
 }
 .login{
   background-color: rgb(209, 212, 209);
   line-height: 30px;
   padding: 10px;
-  width: 60%;
+  width: 40%;
   text-align: center;
   border: 1.5px solid black;
+  position: relative;
+  left: 30%;
 
 }
 .newpost{
-  background-color: rgb(19, 19, 133);
-  width: 50vw;
+  background-color: rgb(170, 170, 170);
+  width: 40vw;
   margin: 1.5%;
   text-align: center;
   height: 40vh;
-  border-radius: 10%;
+  border-radius: 5%;
   line-height: 30px;
-  color: rgb(228, 228, 228);
+ 
+  border: 1px solid black;
+  position: relative;
+  left: 30%;
   
 }
 .edit{
-  background-color: rgb(130, 130, 136);
-  width: 45vw;
+  background-color: rgb(170, 170, 170);
+  width: 40vw;
   margin: 1.5%;
   padding: 10px;
   text-align: center;
-  height: 30vh;
-  border-radius: 10%;
+  height: 25vh;
+  border-radius: 5%;
   line-height: 30px;
+  border: 1px solid black;
+  position: relative;
+  left: 11%;
 }
 .list{
   list-style: none;
+
  
 }
 
 .header{
-  border:1px solid rgb(0, 0, 0);
+  border:1px solid rgb(151, 151, 151);
   background-color:rgb(180, 178, 178);
   padding:3px;
 
+}
+.saleList{
+  position: relative;
+  left: 40%;
+  font-size: 20px;
+  
+}
+.each_post{
+  
+  padding: 2px;
+}
+.item-description{
+  height: 50px;
+  width: 160px;
+  
 }

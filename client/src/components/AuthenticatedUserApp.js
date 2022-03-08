@@ -1,10 +1,11 @@
 import React from "react";
-import NewItem from "./NewItem";
-import Categories from "./Categories";
+import NewPost from "./NewPost";
+
 import Navbar from "./Navbar"
+import RenderPost from "./RenderPost";
 
 
-function AuthenticatedUserApp({currentUser, setCurrentUser}){
+function AuthenticatedUserApp({currentUser, setCurrentUser, posts}){
 
     function handleLogout(){
         fetch("/logout", {
@@ -23,8 +24,8 @@ function AuthenticatedUserApp({currentUser, setCurrentUser}){
             currentUser={currentUser}
             handleLogout={handleLogout}
            />
-          <NewItem /> 
-          <Categories />
+          <NewPost /> 
+          <RenderPost posts={posts}/>
               
         </div>
     )

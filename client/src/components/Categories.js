@@ -1,20 +1,19 @@
-import React from "react";
-import Sporting from "./Sporting";
-import Tools from "./Tools";
-import Free from "./Free";
+// import React from "react";
+// import Sporting from "./Sporting";
+// import Tools from "./Tools";
+// import Free from "./Free";
 
-function Categories(){
-    return (
-        <div>
-           {/* <h3>Render all Posts</h3> */}
+// function Categories(){
+//     return (
+//         <div className="saleList">
            
-            <Sporting/>
-            <Tools/>
-            <Free/>
+//             <Sporting />
+//             <Tools />
+//             <Free />
             
                 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-export default Categories;
+// export default Categories;
