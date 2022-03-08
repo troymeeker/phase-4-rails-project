@@ -16,7 +16,7 @@ function EditForm({submitNewItem}){
             <option>Tools</option>
             <option>Free</option>
         </select><br/>
-        <button>Submit</button>
+        <button>Confirm Edit</button>
                     
     </form>)
 }

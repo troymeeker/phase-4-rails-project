@@ -12,6 +12,12 @@ function App() {
   
  
 
+  useEffect(() => {
+    fetch('/posts')
+    .then((resp) => resp.json())
+    .then((posts) => setPosts(posts))
+}, [])
+
   // function handleMovieSubmit(movie){
   //   fetch('http://localhost:9292/movies', {
   //       method: "POST", 
@@ -39,6 +45,7 @@ function App() {
         resp.json().then((user) => {
           setCurrentUser(user)
           setAuthChecked(true)
+          
         })
        } else {
          setAuthChecked(true)
@@ -55,6 +62,7 @@ function App() {
           setCurrentUser={setCurrentUser}
           currentUser={currentUser}
           posts={posts}
+          setPosts={setPosts}
         />
       ) : (
         <UnauthenticatedUserApp

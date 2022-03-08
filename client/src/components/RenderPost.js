@@ -1,18 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 // import EditForm from './EditForm'
 import PostItem from "./PostItem";
 
-function RenderPost(){
-
-    // const [showEdit, setShowEdit] = useState(false)
-     const [posts, setPosts] = useState([])
-    // const {item_name, description, price} = posts;
-
-    useEffect(() => {
-        fetch('/posts')
-        .then(resp => resp.json())
-        .then(data => setPosts(data))
-    }, [])
+function RenderPost({posts, setPosts}){
+   
+    // useEffect(() => {
+    //     fetch('/posts')
+    //     .then(resp => resp.json())
+    //     .then((posts) => setPosts(posts))
+    // }, [])
 
     // function toggleEditItem(){
     //     setShowEdit(!showEdit)
@@ -21,31 +17,32 @@ function RenderPost(){
     //     e.preventDefault();
     //     console.log('edit existing item');
     // }
-    function handleDelete(){
-        console.log('delete item');
+   
+    function handlePostDelete(id){
+        const updatedPosts = posts.filter((post) => post.id !== id)
+        setPosts(updatedPosts);
     }
-    
    
       const postDetails = posts.map((post) => {
        return (
        <PostItem 
-         handleDelete={handleDelete} 
-        //  toggleEditItem={toggleEditItem} 
-         post={post} key={post.id}
-
-       >
-
-       </PostItem>
-
+         post={post} 
+         key={post.id}
+         onItemDelete={handlePostDelete}
+        
+       />
+       
        )  
-      })
+      }) 
+
+      
 
     return (
         <div>
             <p> <strong>Category</strong> </p>
             <ul className="list">
                
-               {postDetails} 
+               <li>{postDetails} </li>
              
                   
             </ul>

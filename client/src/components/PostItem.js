@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import EditForm from "./EditForm";
 
-const PostItem = ({post, handleDelete, }) => {
+const PostItem = ({post, onItemDelete }) => {
     const [showEdit, setShowEdit] = useState(false)
    
     
-    const {item_name, description, price} = post;
+    const {id, item_name, description, price} = post;
 
     function toggleEditItem(){
         setShowEdit(!showEdit)
@@ -14,6 +14,16 @@ const PostItem = ({post, handleDelete, }) => {
     function submitNewItem(e){
         e.preventDefault();
         console.log('edit existing item');
+        // fetch(`/posts/${id}`, {
+        //     method: "PATCH", 
+
+        // } )
+    }
+    function handleDelete(){
+        fetch(`posts/${id}`, {
+            method: "DELETE",
+        })
+        onItemDelete(id)
     }
     
     

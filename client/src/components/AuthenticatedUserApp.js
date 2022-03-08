@@ -5,7 +5,7 @@ import Navbar from "./Navbar"
 import RenderPost from "./RenderPost";
 
 
-function AuthenticatedUserApp({currentUser, setCurrentUser, posts}){
+function AuthenticatedUserApp({currentUser, setCurrentUser, posts, setPosts}){
 
     function handleLogout(){
         fetch("/logout", {
@@ -25,7 +25,7 @@ function AuthenticatedUserApp({currentUser, setCurrentUser, posts}){
             handleLogout={handleLogout}
            />
           <NewPost /> 
-          <RenderPost posts={posts}/>
+          <RenderPost posts={posts} setPosts={setPosts}/>
               
         </div>
     )
