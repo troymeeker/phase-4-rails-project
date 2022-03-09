@@ -23,32 +23,19 @@ function RenderPost({posts, setPosts}){
         setPosts(updatedPosts);
     }
    
-      const postDetails = posts.map((post) => {
-       return (
-       <PostItem 
-         post={post} 
-         key={post.id}
-         onItemDelete={handlePostDelete}
-        
-       />
-       
-       )  
+      const postItems = posts.map((post) => {
+       return <PostItem post={post} key={post.id} onItemDelete={handlePostDelete} />      
       }) 
-
-      
 
     return (
         <div>
             <p> <strong>Category</strong> </p>
             <ul className="list">
-               
-               <li>{postDetails} </li>
-             
-                  
+               {postItems}
             </ul>
            
         </div>
-    )
+    );
 }
 
 export default RenderPost;

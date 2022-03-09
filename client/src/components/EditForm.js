@@ -1,8 +1,8 @@
 import React from "react";
 
-function EditForm({submitNewItem}){
+function EditForm({submitNewEdit}){
     return( 
-    <form className="edit" onSubmit={submitNewItem}>
+    <form className="edit" onSubmit={submitNewEdit}>
                         
         <label>Edit Item Name</label>
         <input name="item name" placeholder="item name"></input><br/>

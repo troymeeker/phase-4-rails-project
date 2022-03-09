@@ -18,25 +18,20 @@ function App() {
     .then((posts) => setPosts(posts))
 }, [])
 
-  // function handleMovieSubmit(movie){
-  //   fetch('http://localhost:9292/movies', {
-  //       method: "POST", 
-  //       headers: {
-  //          "Content-Type": "application/json"
-  //       },
-  //       body: JSON.stringify(movie)
-  //   })
-  //   .then((resp) => resp.json())
-  //   .then((movie) => {
-  //        setMovies([...movies, movie])
-  //   })
+// function handlePostAdd(post){
+//   fetch('/posts', {
+//       method: "POST", 
+//       headers: {
+//          "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify(post)
+//   })
+//   .then((resp) => resp.json())
+//   .then((post) => {
+//        setPosts([...posts, post])
+//   })
 
-  // }
-
-  // function handleMovieDelete(id){
-  //   const updatedMovies = movies.filter((movie) => movie.id !== id)
-  //   setMovies(updatedMovies);
-  // }
+// }
 
   useEffect(() => {
     fetch("/me")
@@ -63,6 +58,7 @@ function App() {
           currentUser={currentUser}
           posts={posts}
           setPosts={setPosts}
+          
         />
       ) : (
         <UnauthenticatedUserApp

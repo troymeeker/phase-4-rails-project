@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import EditForm from "./EditForm";
 
-const PostItem = ({post, onItemDelete }) => {
+const PostItem = ({post, onItemDelete}) => {
     const [showEdit, setShowEdit] = useState(false)
    
     
@@ -11,7 +11,7 @@ const PostItem = ({post, onItemDelete }) => {
         setShowEdit(!showEdit)
     }
 
-    function submitNewItem(e){
+    function submitNewEdit(e){
         e.preventDefault();
         console.log('edit existing item');
         // fetch(`/posts/${id}`, {
@@ -30,11 +30,11 @@ const PostItem = ({post, onItemDelete }) => {
     return (
         <div className="each_post">
               
-            <h4> {item_name} </h4>
-            
+            <h3> {item_name} </h3>
             <h4> Description: {description}</h4>
             <h4>Price: ${price}</h4>
-          { showEdit? <EditForm submitNewItem={submitNewItem}/> : null}
+          { showEdit? <EditForm submitNewEdit={submitNewEdit}/> : null}
+            <h4>Posted By: {item_name}</h4>
             <button onClick={toggleEditItem}>EDIT</button>
 
             <button onClick={handleDelete}>DELETE</button>

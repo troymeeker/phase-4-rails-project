@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   # # POST /posts
   def create
-    post = Post.create!(post_params)
+    post = Post.create(post_params)
     
     if post
       render json: post, status: :created

@@ -1,6 +1,4 @@
 import React from "react";
-
-import NewItem from "./NewItem";
 import RenderPost from "./RenderPost";
 
 
@@ -16,7 +14,7 @@ function Home({ onLogout }){
         <div>
             <button onClick={handleLogout}>Logout</button>
             <h1>mylist</h1>
-          <NewItem/> 
+          
           <RenderPost />
           
               

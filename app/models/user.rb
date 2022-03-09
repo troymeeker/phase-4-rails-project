@@ -5,6 +5,6 @@ class User < ApplicationRecord
     has_secure_password 
     #macro, sets as pw digest & encrypt
     #validates pw
-    validates :username, presence: true, uniqueness: true
+    # validates :username, presence: true, uniqueness: true
    
 end
