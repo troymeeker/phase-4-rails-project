@@ -1,10 +1,17 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import NewPost from "./NewPost";
 import Navbar from "./Navbar"
-import RenderPost from "./RenderPost";
+import PostItem from "./PostItem";
 
-
-function AuthenticatedUserApp({currentUser, setCurrentUser, posts, setPosts}){
+function AuthenticatedUserApp({currentUser, setCurrentUser}){
+  const [posts, setPosts] = useState([]);
+  
+  useEffect(() => {
+    fetch('/posts')
+    .then((resp) => resp.json())
+    .then((posts) => setPosts(posts))
+  }, []);
+   
 
     function handleLogout(){
         fetch("/logout", {
@@ -17,29 +24,36 @@ function AuthenticatedUserApp({currentUser, setCurrentUser, posts, setPosts}){
         })
     }
 
-    function handlePostAdd(post){
-        fetch('/posts', {
-            method: "POST", 
-            headers: {
-               "Content-Type": "application/json"
-            },
-            body: JSON.stringify(post)
+    function handlePostAdd(addedPost){
+        setPosts((posts) => [...posts, addedPost]);
+       
+    }
+    function handlePostDelete(id){
+        const updatedPosts = posts.filter((post) => post.id !== id)
+        setPosts(updatedPosts);
+    }
+    function handleEditPost(updatedPost){
+        setPosts((posts) => 
+        posts.map((post) => {
+            return post.id === updatedPost.id ? updatedPost : post;
         })
-        .then((resp) => resp.json())
-        .then((post) => {
-             setPosts([...posts, post])
-        })
-      }
+        );
+    }
+
 
     return (
         <div className="authpage">
-           <Navbar 
-            currentUser={currentUser}
-            handleLogout={handleLogout}
-           />
-          <NewPost handlePostAdd={handlePostAdd}/> 
-          <RenderPost posts={posts} setPosts={setPosts}/>
-              
+          <Navbar currentUser={currentUser} handleLogout={handleLogout}/>
+          <NewPost onPostAdd={handlePostAdd}/> 
+         { posts.map((post) => (
+              <PostItem 
+                key={post.id}
+                post={post}
+                onItemDelete={handlePostDelete}
+                onEditItem={handleEditPost}
+              />
+          ))}
+          {/* <RenderPost posts={posts} setPosts={setPosts}/> */}
         </div>
     )
 }

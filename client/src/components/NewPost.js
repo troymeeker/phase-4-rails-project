@@ -1,51 +1,90 @@
 import React, {useState} from "react";
 
+const initState = {
+    item_name: "", 
+    description: "", 
+    price:"",
+    category_id:"",
 
-function NewPost({handlePostAdd}){
+}
+
+
+function NewPost({onPostAdd}){
   
-    const [showform, setShowForm] = useState(false)
-    const [price, setPrice] = useState("")
-    const [item_name, setItemName] = useState("")
-    const [description, setDescription] = useState("")
-    const [category_id, setCategoryId] = useState("")
+    const [showform, setShowForm] = useState(false);
+    const [formData, setFormData] = useState(initState);
+   
+    // const [item_name, setItemName] = useState("")
+    // const [description, setDescription] = useState("")
+    // const [price, setPrice] = useState("")
+    // const [category_id, setCategoryId] = useState("")
+    // const [errors, setErrors] = useState([])
 
     function toggleRenderForm(){
         setShowForm(!showform)
     }
 
-    function submitNewItem(e){
+    function handleChange(e){
+        setFormData({
+            ...formData,
+            [e.target.id]: e.target.value,
+        });
+
+    }
+
+    function submitNewPost(e){
         e.preventDefault();
     //    console.log('new post');
-        const post = {
-            item_name: item_name,
-            description: description, 
-            price: price, 
-            category_id: category_id
-        };
-
-        handlePostAdd(post)
-        setItemName("")
-        setDescription("")
-        setPrice("")
-        setCategoryId("")
+      fetch('/posts', {
+          method:"POST", 
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+      })
+      .then((r)=> r.json())
+      .then((newPost) => {
+          setFormData(initState)
+          onPostAdd(newPost)
+      })
+        
     } 
 
     return( 
         <div >
         {showform? <button onClick={toggleRenderForm}>Hide Form</button> : <button onClick={toggleRenderForm}>Create new posting</button>} 
-       { showform? <form onSubmit={submitNewItem} className="newpost">
+       { showform? <form onSubmit={submitNewPost} className="newpost">
            <h4>Create Post</h4><br/>
              <label>Item Name </label>
-             <input name="item_name" placeholder="item name" onChange={(e) => setItemName(e.target.value)} value={item_name}/><br/>
+             <input
+                type="text"
+                placeholder="item name"
+                id="item_name"
+                onChange={handleChange} 
+                value={formData.item_name}
+               /><br/>
              <label>Description </label>
-             <input name="description" placeholder="description" className="item-description" onChange={(e) => setDescription(e.target.value)} value={description}/><br/>
+             <input 
+                type="text"
+                placeholder="description"
+                className="item-description"
+                id="description"
+                onChange={handleChange} 
+                value={formData.description}
+               /><br/>
              <label>Price </label>
-             <input name="price" placeholder="price" onChange={(e) => setPrice(e.target.value)} value={price}/><br/>
+             <input 
+                 type="integer"
+                 placeholder="price" 
+                 id="price"
+                 onChange={handleChange}
+                 value={formData.price}
+              /><br/>
              <label>Category </label>
-             <select onChange={(e) => setCategoryId(e.target.value)}>
-                 <option value='1'>Sporting</option>
-                 <option value='2'>Tools</option>
-                 <option value='3'>Free</option>
+             <select onChange={handleChange} >
+                 <option value={1}>Sporting</option>
+                 <option value={2}>Tools</option>
+                 <option value={3}>Free</option>
              </select><br/>
 
              <button>Add Item</button>

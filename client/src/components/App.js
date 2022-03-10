@@ -8,15 +8,15 @@ function App() {
   
   const [currentUser, setCurrentUser] = useState(null)
   const [authChecked, setAuthChecked] = useState(false)
-  const [posts, setPosts] = useState([])
+//   const [posts, setPosts] = useState([])
   
  
 
-  useEffect(() => {
-    fetch('/posts')
-    .then((resp) => resp.json())
-    .then((posts) => setPosts(posts))
-}, [])
+//   useEffect(() => {
+//     fetch('/posts')
+//     .then((resp) => resp.json())
+//     .then((posts) => setPosts(posts))
+// }, [])
 
 // function handlePostAdd(post){
 //   fetch('/posts', {
@@ -55,10 +55,7 @@ function App() {
       currentUser ? (
         <AuthenticatedUserApp
           setCurrentUser={setCurrentUser}
-          currentUser={currentUser}
-          posts={posts}
-          setPosts={setPosts}
-          
+          currentUser={currentUser}        
         />
       ) : (
         <UnauthenticatedUserApp

@@ -8,10 +8,10 @@ class PostsController < ApplicationController
   end
 
   # # GET /posts/1
-  def show
-    post = find_post
-    render json: post
-  end
+  # def show
+  #   post = find_post
+  #   render json: post
+  # end
 
   # # POST /posts
   def create
@@ -20,19 +20,19 @@ class PostsController < ApplicationController
     if post
       render json: post, status: :created
     else
-      render json: post.errors, status: :unprocessable_entity
+      render json: {error: "render error here"}
     end
   end
 
   # # PATCH /posts/1
-  def update
-    post = Post.find(params[:id])
-    if post.update(post_params)
-      render json: post, status: :ok
-    else
-      render json: post.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   post = Post.find(params[:id])
+  #   if post.update(post_params)
+  #     render json: post, status: :ok
+  #   else
+  #     render json: post.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # # DELETE /posts/1
   def destroy
@@ -49,6 +49,6 @@ class PostsController < ApplicationController
 
   #   # Only allow a list of trusted parameters through.
     def post_params
-      params.permit(:item_name, :description, :price)
+      params.permit(:item_name, :description, :price, :category_id)
     end
 end

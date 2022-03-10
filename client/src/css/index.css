@@ -23,9 +23,9 @@
   line-height: 35px;
 }
 .unauthpage{
-  background-color: blueviolet;
+  background-color: rgb(215, 188, 241);
   line-height: 35px;
-  padding: 15px;
+  padding: 25px;
   height: 200vh;
 }
 .signup{
