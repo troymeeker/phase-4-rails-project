@@ -24,14 +24,28 @@ function AuthenticatedUserApp({currentUser, setCurrentUser}){
         })
     }
 
-    function handlePostAdd(addedPost){
-        setPosts((posts) => [...posts, addedPost]);
-       
-    }
+    function handlePostAdd(post){
+
+        fetch('/posts', {
+            method: "POST", 
+            headers: {
+               "Content-Type": "application/json"
+            },
+            body: JSON.stringify(post)
+        })
+        .then((resp) => resp.json())
+        .then((post) => {
+             setPosts([...posts, post])
+        })
+      }
+   
+
+
     function handlePostDelete(id){
         const updatedPosts = posts.filter((post) => post.id !== id)
         setPosts(updatedPosts);
     }
+
     function handleEditPost(updatedPost){
         setPosts((posts) => 
         posts.map((post) => {
@@ -53,7 +67,7 @@ function AuthenticatedUserApp({currentUser, setCurrentUser}){
                 onEditItem={handleEditPost}
               />
           ))}
-          {/* <RenderPost posts={posts} setPosts={setPosts}/> */}
+         
         </div>
     )
 }

@@ -1,53 +1,61 @@
 import React, {useState} from "react";
 
-const initState = {
-    item_name: "", 
-    description: "", 
-    price: "",
-    category_id: "",
-    user_id:""
-
-}
-
 
 function NewPost({onPostAdd}){
   
     const [showform, setShowForm] = useState(false);
-    const [formData, setFormData] = useState(initState);
+    // const [formData, setFormData] = useState(initState);
    
-    // const [item_name, setItemName] = useState("")
-    // const [description, setDescription] = useState("")
-    // const [price, setPrice] = useState("")
-    // const [category_id, setCategoryId] = useState("")
+    const [item_name, setItemName] = useState("")
+    const [description, setDescription] = useState("")
+    const [price, setPrice] = useState("")
+    const [category_id, setCategoryId] = useState("")
     // const [errors, setErrors] = useState([])
 
     function toggleRenderForm(){
         setShowForm(!showform)
     }
 
-    function handleChange(e){
-        setFormData({
-            ...formData,
-            [e.target.id]: e.target.value,
-        });
-    }
+    // function handleChange(e){
+    //     setFormData({
+    //         ...formData,
+    //         [e.target.id]: e.target.value,
+    //     });
+    // }
 
     function submitNewPost(e){
         e.preventDefault();
-    //    console.log('new post');
-      fetch('/posts', {
-          method:"POST", 
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-      })
-      .then((r)=> r.json())
-      .then((newPost) => {
-          setFormData(initState);
-          onPostAdd(newPost);
-      })
+        //    console.log('new post');
+        const post = {
+            item_name: item_name, 
+            description: description, 
+            price: price, 
+            category_id: category_id
+        }
+        onPostAdd(post)
+        setItemName("")
+        setDescription("")
+        setPrice("")
+        setCategoryId("")
    } 
+   
+   
+   function handleItemChange(e){
+       setItemName(e.target.value)
+   }
+
+   function handleDescriptionChange(e){
+       setDescription(e.target.value)
+   }
+
+   function handlePriceChange(e){
+       setPrice(e.target.value)
+   }
+
+   function handleCategoryChange(e){
+       setCategoryId(e.target.value)
+
+   }
 
     return( 
         <div >
@@ -59,8 +67,8 @@ function NewPost({onPostAdd}){
                 type="text"
                 placeholder="item name"
                 id="item_name"
-                onChange={handleChange} 
-                value={formData.item_name}
+                onChange={handleItemChange} 
+                value={item_name}
                /><br/>
              <label>Description </label>
              <input 
@@ -68,22 +76,22 @@ function NewPost({onPostAdd}){
                 placeholder="description"
                 className="item-description"
                 id="description"
-                onChange={handleChange} 
-                value={formData.description}
+                onChange={handleDescriptionChange} 
+                value={description}
                /><br/>
              <label>Price </label>
              <input 
                  type="integer"
                  placeholder="price" 
                  id="price"
-                 onChange={handleChange}
-                 value={formData.price}
+                 onChange={handlePriceChange}
+                 value={price}
               /><br/>
              <label>Category </label>
-             <select onChange={handleChange} >
-                 <option id="category_id" value={1}>Sporting</option>
-                 <option id="category_id" value={2}>Tools</option>
-                 <option id="category_id" value={3}>Free</option>
+             <select onChange={handleCategoryChange} >
+                 <option id="category_id" value='1'>Sporting</option>
+                 <option id="category_id" value='2'>Tools</option>
+                 <option id="category_id" value='3'>Free</option>
              </select><br/>
 
              <button>Add Item</button>
