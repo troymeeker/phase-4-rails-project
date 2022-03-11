@@ -8,19 +8,20 @@ class PostsController < ApplicationController
   end
 
   # # GET /posts/1
-  # def show
-  #   post = find_post
-  #   render json: post
-  # end
+  def show
+    post = find_post
+    render json: post
+  end
 
   # # POST /posts
   def create
-    post = Post.create(post_params)
+    #  byebug
+    post = Post.create!(post_params)
     
     if post
       render json: post, status: :created
     else
-      render json: {error: "render error here"}
+      render json: post.errors, status: :unprocessable_entity
     end
   end
 
@@ -49,6 +50,6 @@ class PostsController < ApplicationController
 
   #   # Only allow a list of trusted parameters through.
     def post_params
-      params.permit(:item_name, :description, :price, :category_id)
+      params.require(:post).permit(:item_name, :description, :price, :category_id)
     end
 end

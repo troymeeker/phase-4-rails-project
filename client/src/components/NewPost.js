@@ -3,8 +3,8 @@ import React, {useState} from "react";
 const initState = {
     item_name: "", 
     description: "", 
-    price:"",
-    category_id:"",
+    price: "",
+    category_id: "",
 
 }
 
@@ -29,7 +29,6 @@ function NewPost({onPostAdd}){
             ...formData,
             [e.target.id]: e.target.value,
         });
-
     }
 
     function submitNewPost(e){
@@ -44,11 +43,10 @@ function NewPost({onPostAdd}){
       })
       .then((r)=> r.json())
       .then((newPost) => {
-          setFormData(initState)
-          onPostAdd(newPost)
+          setFormData(formData);
+          onPostAdd(newPost);
       })
-        
-    } 
+   } 
 
     return( 
         <div >
@@ -82,9 +80,9 @@ function NewPost({onPostAdd}){
               /><br/>
              <label>Category </label>
              <select onChange={handleChange} >
-                 <option value={1}>Sporting</option>
-                 <option value={2}>Tools</option>
-                 <option value={3}>Free</option>
+                 <option id="category_id" value={1}>Sporting</option>
+                 <option id="category_id" value={2}>Tools</option>
+                 <option id="category_id" value={3}>Free</option>
              </select><br/>
 
              <button>Add Item</button>
