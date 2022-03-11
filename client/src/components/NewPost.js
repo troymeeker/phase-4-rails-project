@@ -5,6 +5,7 @@ const initState = {
     description: "", 
     price: "",
     category_id: "",
+    user_id:""
 
 }
 
