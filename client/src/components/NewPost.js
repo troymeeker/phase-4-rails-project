@@ -44,7 +44,7 @@ function NewPost({onPostAdd}){
       })
       .then((r)=> r.json())
       .then((newPost) => {
-          setFormData(formData);
+          setFormData(initState);
           onPostAdd(newPost);
       })
    } 
