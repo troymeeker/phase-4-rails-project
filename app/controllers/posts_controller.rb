@@ -26,19 +26,20 @@ class PostsController < ApplicationController
   end
 
   # # PATCH /posts/1
-  # def update
-  #   post = Post.find(params[:id])
-  #   if post.update(post_params)
-  #     render json: post, status: :ok
-  #   else
-  #     render json: post.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def update
+    post = Post.find(params[:id])
+    if post.update(post_params)
+      render json: post, status: :ok
+    else
+      render json: post.errors, status: :unprocessable_entity
+    end
+  end
 
   # # DELETE /posts/1
   def destroy
     post = find_post
     post.destroy
+    # head :no_content
   end
 
   private
@@ -50,6 +51,6 @@ class PostsController < ApplicationController
 
   #   # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:item_name, :description, :price, :category_id)
+      params.require(:post).permit(:id, :item_name, :description, :price, :category_id)
     end
 end

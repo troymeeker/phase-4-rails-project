@@ -38,8 +38,6 @@ function AuthenticatedUserApp({currentUser, setCurrentUser}){
              setPosts([...posts, post])
         })
       }
-   
-
 
     function handlePostDelete(id){
         const updatedPosts = posts.filter((post) => post.id !== id)

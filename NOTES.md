@@ -10,10 +10,14 @@ post bt category
 user hm posts
 user hm categories through posts
 
-signup form
-login form
+signup form X
+login form X
 
-post create form
-delete post
+post create form X
+delete post X
 edit/update post content/name
-read/ show all posts
+read/ show all posts X
+Create new post X 
+show user of each post
+Expand/collapse each post
+seperate posts into Category sections

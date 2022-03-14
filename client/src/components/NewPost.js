@@ -89,6 +89,7 @@ function NewPost({onPostAdd}){
               /><br/>
              <label>Category </label>
              <select onChange={handleCategoryChange} >
+                 <option id="category_id" value=''>Select One</option>
                  <option id="category_id" value='1'>Sporting</option>
                  <option id="category_id" value='2'>Tools</option>
                  <option id="category_id" value='3'>Free</option>

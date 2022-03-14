@@ -1,9 +1,8 @@
-import React, {useState} from "react";
+import React, { useState} from "react";
 import EditForm from "./EditForm";
 
 const PostItem = ({post, onItemDelete, onEditItem}) => {
     const [showEdit, setShowEdit] = useState(false)
-   
     
     const {id, item_name, description, price} = post;
 
@@ -23,15 +22,18 @@ const PostItem = ({post, onItemDelete, onEditItem}) => {
             body: JSON.stringify({post}),
         })
         .then(r => r.json())
-        .then(onEditItem);
+        .then(onEditItem(post));
        
     }
-    
+
     function handleDelete(){
         fetch(`posts/${id}`, {
             method: "DELETE",
+        }).then((r) => {
+            if (r.ok) {
+              onItemDelete(id); 
+            }
         })
-        onItemDelete(id)
     } 
      
     
@@ -43,6 +45,7 @@ const PostItem = ({post, onItemDelete, onEditItem}) => {
             <h4>Price: ${price}</h4>
           { showEdit? <EditForm submitNewEdit={submitNewEdit}/> : null}
             {/* <h4>Posted By: {item_name}</h4> */}
+            <h4>Posted By: </h4>
             <button onClick={toggleEditItem}>EDIT</button>
 
             <button onClick={handleDelete}>DELETE</button>

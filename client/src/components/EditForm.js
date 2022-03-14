@@ -12,6 +12,7 @@ function EditForm({submitNewEdit}){
         <input name="price" placeholder="price"></input><br/>
         <label>Edit Category</label>
         <select name="category" placeholder="category">
+            <option>Select One</option>
             <option>Sporting</option>
             <option>Tools</option>
             <option>Free</option>
