@@ -2,12 +2,13 @@ import React, { useState } from "react";
 // import { UserContext } from "./UserContext";
 
 function EditForm({onEditItem, post}){
-        const {id, item_name, description, price } = post;
+        const {id, description, price } = post;
         const [updatedPrice, setUpdatedPrice] = useState(price)
+        const [updatedDescription, setupdatedDescription] = useState(description);
 
     //  const {item_name, setItemName} = useContext(UserContext);
     // const [item_name, setItemName] = useState('')
-    // const {description, setDescription} = useContext(UserContext);
+   
 
     
     function handleFormSubmit(e){
@@ -19,7 +20,12 @@ function EditForm({onEditItem, post}){
             headers: {
                "Content-Type":"application/json",
             },
-            body: JSON.stringify({ price: updatedPrice}),
+            body: JSON.stringify({ 
+                description: updatedDescription,
+                price: updatedPrice
+                
+
+            }),
         })
         .then((r) => r.json())
         .then((updatedPost) => {
@@ -32,13 +38,13 @@ function EditForm({onEditItem, post}){
     return( 
     <div >
                         
-        <h4>{item_name}</h4>
-        <h4>{description}</h4>
-        <form className="edit" >
+        <form className="edit" onSubmit={handleFormSubmit}>
+            <label>Edit Description</label>
+            <input type="text" placeholder={description} value={updatedDescription} onChange={(e) => setupdatedDescription(e.target.value)}></input>
             <label>Edit Price</label> 
             <input type="number" placeholder="New price" value={updatedPrice} onChange={(e) => setUpdatedPrice(parseFloat(e.target.value))}></input><br/>
             
-            <button type="submit" onClick={handleFormSubmit}>Confirm Edit</button>
+            <button type="submit" >Confirm Edit</button>
         </form>            
     </div>)
 }

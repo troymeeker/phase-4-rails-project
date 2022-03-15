@@ -8,7 +8,7 @@ const PostItem = ({post, onItemDelete, onEditItem}) => {
 
     const [showEdit, setShowEdit] = useState(false)
     
-    const {id, item_name, description, price, category_id} = post;
+    const {id, item_name, description, price} = post;
 
     function toggleEditItem(){
         setShowEdit(!showEdit)
@@ -36,7 +36,7 @@ const PostItem = ({post, onItemDelete, onEditItem}) => {
             <h3> {item_name} </h3>
             <h4> Description: {description}</h4>
             <h4>Price: ${price}</h4>
-            <h4>Category: {category_id.category_type}</h4>
+            {/* <h4>Category: {category_id.category_type}</h4> */}
           { showEdit? <EditForm onEditItem={submitNewEdit} post={post} /> : null}
             
             <button onClick={toggleEditItem}>EDIT PRICE</button>
