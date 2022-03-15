@@ -27,11 +27,12 @@ class PostsController < ApplicationController
 
   # # PATCH /posts/1
   def update
-    post = Post.find(params[:id])
-    if post.update(post_params)
-      render json: post, status: :ok
+    post = find_post
+    if post
+      post.update(post_params)
+      render json: post, status: :accepted
     else
-      render json: post.errors, status: :unprocessable_entity
+      render json: post.errors, status: :not_found
     end
   end
 

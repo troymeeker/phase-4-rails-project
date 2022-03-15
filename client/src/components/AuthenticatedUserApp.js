@@ -45,13 +45,16 @@ function AuthenticatedUserApp({currentUser, setCurrentUser}){
     }
 
     function handleEditPost(updatedPost){
-        setPosts((posts) => 
-        posts.map((post) => {
-            return post.id === updatedPost.id ? updatedPost : post;
-        })
-        );
+       const updatedPosts = posts.map((post) => {
+           if (post.id === updatedPost.id) {
+             return updatedPost;
+           }
+           else {
+               return post;
+            }
+        });
+      setPosts(updatedPosts);
     }
-
 
     return (
         <div className="authpage">
@@ -63,6 +66,7 @@ function AuthenticatedUserApp({currentUser, setCurrentUser}){
                 post={post}
                 onItemDelete={handlePostDelete}
                 onEditItem={handleEditPost}
+                setPosts={setPosts}
               />
           ))}
          
