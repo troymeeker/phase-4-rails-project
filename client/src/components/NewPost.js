@@ -1,31 +1,27 @@
 import React, {useState} from "react";
 
 
+
 function NewPost({onPostAdd}){
+    
   
     const [showform, setShowForm] = useState(false);
     // const [formData, setFormData] = useState(initState);
    
-    const [item_name, setItemName] = useState("")
-    const [description, setDescription] = useState("")
-    const [price, setPrice] = useState("")
-    const [category_id, setCategoryId] = useState("")
-    // const [errors, setErrors] = useState([])
+    const [item_name, setItemName] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [category_id, setCategoryId] = useState("");
+   
 
     function toggleRenderForm(){
         setShowForm(!showform)
     }
 
-    // function handleChange(e){
-    //     setFormData({
-    //         ...formData,
-    //         [e.target.id]: e.target.value,
-    //     });
-    // }
 
     function submitNewPost(e){
         e.preventDefault();
-        //    console.log('new post');
+       
         const post = {
             item_name: item_name, 
             description: description, 
@@ -96,6 +92,7 @@ function NewPost({onPostAdd}){
              </select><br/>
 
              <button>Add Item</button>
+             
         
          </form> : null}
      </div>

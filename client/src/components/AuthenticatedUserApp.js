@@ -1,9 +1,14 @@
 import React, {useState, useEffect} from "react";
+// import { UserContext } from "./UserContext.js"
 import NewPost from "./NewPost";
 import Navbar from "./Navbar"
 import PostItem from "./PostItem";
 
 function AuthenticatedUserApp({currentUser, setCurrentUser}){
+
+// const post = useContext(UserContext);
+//   const [item_name, setItemName] = useState("")
+
   const [posts, setPosts] = useState([]);
   
   useEffect(() => {
@@ -58,9 +63,12 @@ function AuthenticatedUserApp({currentUser, setCurrentUser}){
 
     return (
         <div className="authpage">
+         
           <Navbar currentUser={currentUser} handleLogout={handleLogout}/>
-          <NewPost onPostAdd={handlePostAdd}/> 
-         { posts.map((post) => (
+          
+          {/* <UserContext.Provider value={item:[item_name, set] }> */}
+            <NewPost onPostAdd={handlePostAdd} /> 
+            { posts.map((post) => (
               <PostItem 
                 key={post.id}
                 post={post}
@@ -68,8 +76,8 @@ function AuthenticatedUserApp({currentUser, setCurrentUser}){
                 onEditItem={handleEditPost}
                 setPosts={setPosts}
               />
-          ))}
-         
+             ))}
+          {/* </UserContext.Provider> */}
         </div>
     )
 }
