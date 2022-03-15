@@ -17,16 +17,17 @@
 }
 .authpage{
   background-color: rgb(216, 221, 219);
-  height: 250vh;
+  height: 350vh;
   width: 100vw;
-  padding: 10px;
+  padding: 15px;
   line-height: 35px;
 }
 .unauthpage{
-  background-color: rgb(215, 188, 241);
+  background-color: rgb(150, 150, 150);
   line-height: 35px;
   padding: 25px;
   height: 200vh;
+  text-align: center;
 }
 .signup{
   background-color: rgb(211, 209, 207);
@@ -62,12 +63,12 @@
  
   border: 1px solid black;
   position: relative;
-  left: 30%;
+  left: 15%;
   
 }
 .edit{
   background-color: rgb(170, 170, 170);
-  width: 40vw;
+  width: 35vw;
   margin: 1.5%;
   padding: 10px;
   text-align: center;
@@ -76,13 +77,12 @@
   line-height: 30px;
   border: 1px solid black;
   position: relative;
-  left: 11%;
+  left: 8%;
 }
 .list{
   list-style: none;
 
- 
-}
+ }
 
 .header{
   border:1px solid rgb(151, 151, 151);
@@ -98,10 +98,18 @@
 }
 .each_post{
   
-  padding: 2px;
+  width: fit-content;
+  padding: 25px;
+  display: block;
+  
 }
 .item-description{
   height: 50px;
   width: 160px;
   
+}
+.description-field{
+  height: 75px;
+  width: 190px;
+ 
 }

@@ -40,7 +40,7 @@ function EditForm({onEditItem, post}){
                         
         <form className="edit" onSubmit={handleFormSubmit}>
             <label>Edit Description</label>
-            <input type="text" placeholder={description} value={updatedDescription} onChange={(e) => setupdatedDescription(e.target.value)}></input>
+            <input className="description-field" type="text" placeholder={description} value={updatedDescription} onChange={(e) => setupdatedDescription(e.target.value)}></input><br/>
             <label>Edit Price</label> 
             <input type="number" placeholder="New price" value={updatedPrice} onChange={(e) => setUpdatedPrice(parseFloat(e.target.value))}></input><br/>
             
