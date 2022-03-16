@@ -1,37 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import '../css/index.css';
 
-import AuthenticatedUserApp from './AuthenticatedUserApp';
+import Home from './Home';
+
 import UnauthenticatedUserApp from './UnauthenticatedUserApp';
 
 function App() {
   
   const [currentUser, setCurrentUser] = useState(null)
   const [authChecked, setAuthChecked] = useState(false)
-//   const [posts, setPosts] = useState([])
-  
- 
 
-//   useEffect(() => {
-//     fetch('/posts')
-//     .then((resp) => resp.json())
-//     .then((posts) => setPosts(posts))
-// }, [])
-
-// function handlePostAdd(post){
-//   fetch('/posts', {
-//       method: "POST", 
-//       headers: {
-//          "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify(post)
-//   })
-//   .then((resp) => resp.json())
-//   .then((post) => {
-//        setPosts([...posts, post])
-//   })
-
-// }
 
   useEffect(() => {
     fetch("/me")
@@ -53,14 +31,13 @@ function App() {
   if (!authChecked) { return <div></div>}
     return (     
       currentUser ? (
-        <AuthenticatedUserApp
-          setCurrentUser={setCurrentUser}
-          currentUser={currentUser}        
-        />
+      
+        <Home  currentUser={currentUser} setCurrentUser={setCurrentUser}/>
       ) : (
         <UnauthenticatedUserApp
           setCurrentUser={setCurrentUser}
         />
+       
       )
     )
   }

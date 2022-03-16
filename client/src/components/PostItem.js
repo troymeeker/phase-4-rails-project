@@ -33,6 +33,7 @@ const PostItem = ({post, onItemDelete, onEditItem}) => {
 
     function handleFavorite(){
         setFavorite(!favorite)
+        
 
     }
      
@@ -50,7 +51,7 @@ const PostItem = ({post, onItemDelete, onEditItem}) => {
             <button onClick={toggleEditItem}>EDIT ITEM</button>
 
             <button onClick={handleDelete}>DELETE</button>
-           {favorite ? <button onClick={handleFavorite}>🌟</button> : <button onClick={handleFavorite}>☆</button>} 
+           {favorite ? <button onClick={handleFavorite}>⭐</button> : <button onClick={handleFavorite}>☆</button>} 
             <div>___________________________________________________________________</div>
         </div>
     );
