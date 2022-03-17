@@ -1,10 +1,12 @@
 import React, {useState} from "react";
+
 import '../css/index.css';
 
 const Signup = ({setCurrentUser}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
+    
 
 
     function createUser(e){

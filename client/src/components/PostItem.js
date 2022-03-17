@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import EditForm from "./EditForm";
 
-const PostItem = ({post, onItemDelete, onEditItem}) => {
+const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
     //  const {item_name, setItemName} = useContext(UserContext);
 
     const [showEdit, setShowEdit] = useState(false)
@@ -33,9 +33,17 @@ const PostItem = ({post, onItemDelete, onEditItem}) => {
 
     function handleFavorite(){
         setFavorite(!favorite)
-        
-
-    }
+        fetch(`posts/${id}`, { 
+            method: "PATCH",  
+            headers: {
+                "Content-type": "application/json"
+            }, 
+             body: JSON.stringify({favorite: true})
+           })
+       .then((resp) => resp.json())
+       .then((favPost) => onFavorite(favPost))
+       
+       }
      
     
     return (

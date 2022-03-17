@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from "react";
-
 import NewPost from "./NewPost";
-
 import PostItem from "./PostItem";
-// import FavoritesList from "./FavoritesList";
+import NavBar from "./NavBar";
+
 
 // import Login from "./Login";
 // import Signup from "./Signup";
 
-function Home({currentUser, setCurrentUser}){
+function Home({ currentUser, setCurrentUser}){
 
   const [posts, setPosts] = useState([]);
-  
+
+  // const {currentUser, setCurrentUser} = useContext(UserContext);
   useEffect(() => {
     fetch('/posts')
     .then((resp) => resp.json())
@@ -61,14 +61,26 @@ function Home({currentUser, setCurrentUser}){
         });
       setPosts(updatedPosts);
     }
+    
+    function handleFavorite(favoritedPost){
+
+      const favoritedPosts = posts.map((postObj) => {
+        if(postObj.id === favoritedPost.id){
+          return favoritedPost
+        } else {
+          return postObj
+        }
+
+      })
+      setPosts(favoritedPosts)
+    }
 
     return (
         <div className="authpage">
-                  
-          <h2>Welcome {currentUser.username}!</h2> 
-          
-          <button onClick={handleLogout}>Logout</button>
-               
+         
+          <NavBar handleLogout={handleLogout}  currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+          <h2>Welcome user!</h2> 
+                       
             <NewPost onPostAdd={handlePostAdd} /> 
             { posts.map((post) => (
               <PostItem 
@@ -77,6 +89,7 @@ function Home({currentUser, setCurrentUser}){
                 onItemDelete={handlePostDelete}
                 onEditItem={handleEditPost}
                 setPosts={setPosts}
+                onFavorite={handleFavorite}
               />
              ))}
           

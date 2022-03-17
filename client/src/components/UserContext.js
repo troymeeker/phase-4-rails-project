@@ -1,19 +1,20 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
- const UserContext = createContext();
+const UserContext = createContext();
 
- const PostContext = ({post}) => {
-    const [item_name, setItemName] = useState("");
-    // const [description, setDescription] = useState("");
-    // const [price, setPrice] = useState("");
-    // const [category_id, setCategoryId] = useState("");
-   
-    return(
-        <UserContext.Provider value={[item_name, setItemName]}>
-            {post}
+
+function UserProvider({children}) {
+    const [currentUser, setCurrentUser]= useState(null);
+    
+    return (
+        <UserContext.Provider value={{currentUser, setCurrentUser}}>
+          {children}
         </UserContext.Provider>
-    )
 
- }
-
- export {UserContext, PostContext}
+    ) 
+}
+ 
+// context needs default value
+//create 
+ 
+export { UserContext, UserProvider};
