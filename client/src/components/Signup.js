@@ -38,7 +38,7 @@ const Signup = ({setCurrentUser}) => {
 
     return (
         <div className="signup" >
-            <h2 className="header">Create an account</h2>
+            <h2 className="unauth-header">Create an account</h2>
             <form onSubmit={createUser}>
                 
                 <label className="userFormItem">Username</label><br/>

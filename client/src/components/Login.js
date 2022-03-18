@@ -37,7 +37,7 @@ const Login = ({setCurrentUser}) => {
 
     return (
         <div className="login">
-            <h2 className="header">Login</h2>
+            <h2 className="unauth-header">Login</h2>
         <form onSubmit={loginUser}>
             <label>Username</label><br/>
             <input 

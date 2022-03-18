@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from "react";
 import NewPost from "./NewPost";
 import PostItem from "./PostItem";
-import NavBar from "./NavBar";
-
-
 // import Login from "./Login";
 // import Signup from "./Signup";
 
@@ -78,10 +75,17 @@ function Home({ currentUser, setCurrentUser}){
     return (
         <div className="authpage">
          
-          <NavBar handleLogout={handleLogout}  currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+         <div className="header">
           <h2>Welcome {currentUser.username}!</h2> 
+          <button className="logout-button" onClick={handleLogout}>Logout</button>
+         
+         
+         </div>
+          <NewPost onPostAdd={handlePostAdd} /> 
+        <div>___________________________________________________________________</div>
+          
                        
-            <NewPost onPostAdd={handlePostAdd} /> 
+           
             { posts.map((post) => (
               <PostItem 
                 key={post.id}

@@ -85,9 +85,15 @@
  }
 
 .header{
-  border:1px solid rgb(151, 151, 151);
-  background-color:rgb(180, 178, 178);
-  padding:3px;
+ 
+  background-color:rgb(151, 148, 148);
+  padding:5px;
+  height: 12vh;
+  
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  width: 95vw;
 
 }
 .saleList{
@@ -117,4 +123,19 @@
   border: 1px solid black;
   width: fit-content;
   padding: 2px;
+}
+.logout-button{
+  margin-left: 50vw;
+  height: 26px;
+  width: 60px;
+  
+
+}
+.unauth-header{
+   
+  background-color:rgb(128, 128, 128);
+  padding:1px;
+  height: 7vh;
+  border: 1px solid black;
+  
 }
