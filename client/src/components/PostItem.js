@@ -33,15 +33,15 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
 
     function handleFavorite(){
         setFavorite(!favorite)
-        fetch(`posts/${id}`, { 
-            method: "PATCH",  
-            headers: {
-                "Content-type": "application/json"
-            }, 
-             body: JSON.stringify({favorite: true})
-           })
-       .then((resp) => resp.json())
-       .then((favPost) => onFavorite(favPost))
+    //     fetch(`posts/${id}`, { 
+    //         method: "PATCH",  
+    //         headers: {
+    //             "Content-type": "application/json"
+    //         }, 
+    //          body: JSON.stringify({favorite: true})
+    //        })
+    //    .then((resp) => resp.json())
+    //    .then((favPost) => onFavorite(favPost))
        
        }
      

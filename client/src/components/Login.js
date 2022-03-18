@@ -11,7 +11,7 @@ const Login = ({setCurrentUser}) => {
 
     function loginUser(e){
         e.preventDefault();
-        fetch('/login', {
+        fetch("/login", {
             method:"POST", 
             headers: {
                 "Content-Type": "application/json",

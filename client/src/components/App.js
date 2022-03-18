@@ -30,14 +30,15 @@ function App() {
 
 
 
-  // if (!authChecked) { return <div></div>}
+  if (!authChecked) { return <div>test</div> }
     return (     
-      currentUser ? (
-
-          <Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+      currentUser ? (  
+         <Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         ) : (
-          <UnauthenticatedUserApp setCurrentUser={setCurrentUser}/>
+        <UnauthenticatedUserApp setCurrentUser={setCurrentUser}/>
         )
+   
+      
       )
     }
 

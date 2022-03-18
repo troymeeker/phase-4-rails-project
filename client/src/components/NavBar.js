@@ -3,7 +3,7 @@ import FavoritesList from "./FavoritesList";
 // import Home from "./Home";
 import Logout from "./Logout"
  import { Routes, Route, Link} from 'react-router-dom';
-import Home from "./Home";
+
 
 
 
@@ -19,7 +19,7 @@ function NavBar({handleLogout, currentUser, setCurrentUser}) {
         </h4>
 
         <Routes>
-            <Route path="/" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
+            {/* <Route path="/home" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser} />}/> */}
             <Route path="/favorites" element={<FavoritesList />}/>
 
         </Routes>

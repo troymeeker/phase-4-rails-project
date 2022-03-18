@@ -16,7 +16,7 @@ const Signup = ({setCurrentUser}) => {
             password, 
             password_confirmation: passwordConfirmation
         }
-        fetch('/signup', {
+        fetch("/signup", {
             method:"POST", 
             headers: {
                 "Content-Type": "application/json"

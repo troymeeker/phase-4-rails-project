@@ -32,7 +32,7 @@ function Home({ currentUser, setCurrentUser}){
 
     function handlePostAdd(post){
 
-        fetch('/posts', {
+        fetch("/posts", {
             method: "POST", 
             headers: {
                "Content-Type": "application/json"
@@ -79,7 +79,7 @@ function Home({ currentUser, setCurrentUser}){
         <div className="authpage">
          
           <NavBar handleLogout={handleLogout}  currentUser={currentUser} setCurrentUser={setCurrentUser}/>
-          <h2>Welcome user!</h2> 
+          <h2>Welcome {currentUser.username}!</h2> 
                        
             <NewPost onPostAdd={handlePostAdd} /> 
             { posts.map((post) => (
