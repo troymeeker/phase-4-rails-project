@@ -5,11 +5,11 @@ const Navbar = () => {
   
   return (
     <div >
-      <nav className='navbar'>
+      <nav className='header'>
         <ul >
          <li><Link to ='/'>Home</Link> </li>
          <li><Link to='/layout'>Layout</Link></li>
-         <li><Link to='/test'>Test</Link></li>
+         <li><Link to='/new'>Create New Posting</Link></li>
         
           
         </ul>

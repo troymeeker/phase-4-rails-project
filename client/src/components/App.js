@@ -7,9 +7,10 @@ import Home from './Home';
 // import PostItem from './PostItem';
 import UnauthenticatedUserApp from './UnauthenticatedUserApp';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Test from "./Test"
+
 import Layout from "./Layout";
 import NavBar from "./NavBar";
+import NewPost from './NewPost';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -37,17 +38,17 @@ function App() {
   if (!authChecked) { return <div>test</div> }
     return (     
       currentUser ? (
-          <div>
+          <div >
            
            <Router>
              <NavBar/>
-            <Routes>
+             <Routes>
               <Route path="/" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
               <Route path="/layout" element={<Layout />}/>
-              <Route path="/test" element={<Test />}/>
+              <Route path="/new" element={<NewPost />}/>
               
             </Routes>
-            {/* <Link to="/layout" /> */}
+            
 
             </Router>
           </div>
