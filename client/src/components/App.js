@@ -6,6 +6,10 @@ import Home from './Home';
 // import NewPost from './NewPost';
 // import PostItem from './PostItem';
 import UnauthenticatedUserApp from './UnauthenticatedUserApp';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Test from "./Test"
+import Layout from "./Layout";
+import NavBar from "./NavBar";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -32,8 +36,21 @@ function App() {
 
   if (!authChecked) { return <div>test</div> }
     return (     
-      currentUser ? (  
-         <Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+      currentUser ? (
+          <div>
+           
+           <Router>
+             <NavBar/>
+            <Routes>
+              <Route path="/" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
+              <Route path="/layout" element={<Layout />}/>
+              <Route path="/test" element={<Test />}/>
+              
+            </Routes>
+            {/* <Link to="/layout" /> */}
+
+            </Router>
+          </div>
         ) : (
         <UnauthenticatedUserApp setCurrentUser={setCurrentUser}/>
         )

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import NewPost from "./NewPost";
 import PostItem from "./PostItem";
-// import Login from "./Login";
-// import Signup from "./Signup";
+
+
 
 function Home({ currentUser, setCurrentUser}){
 
@@ -77,6 +77,7 @@ function Home({ currentUser, setCurrentUser}){
          
          <div className="header">
           <h2>Welcome {currentUser.username}!</h2> 
+          
           <button className="logout-button" onClick={handleLogout}>Logout</button>
          
          
@@ -84,8 +85,6 @@ function Home({ currentUser, setCurrentUser}){
           <NewPost onPostAdd={handlePostAdd} /> 
         <div>___________________________________________________________________</div>
           
-                       
-           
             { posts.map((post) => (
               <PostItem 
                 key={post.id}
