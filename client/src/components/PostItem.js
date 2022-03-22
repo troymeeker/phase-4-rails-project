@@ -7,8 +7,9 @@ import EditForm from "./EditForm";
 const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
     //  const {item_name, setItemName} = useContext(UserContext);
 
-    const [showEdit, setShowEdit] = useState(false)
-    const [favorite, setFavorite] = useState(false)
+    const [showEdit, setShowEdit] = useState(false);
+    const [isFavorite, setIsFavorite] = useState(false);
+
     
     const {id, item_name, description, price} = post;
 
@@ -32,16 +33,16 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
     } 
 
     function handleFavorite(){
-        setFavorite(!favorite)
-    //     fetch(`posts/${id}`, { 
-    //         method: "PATCH",  
-    //         headers: {
-    //             "Content-type": "application/json"
-    //         }, 
-    //          body: JSON.stringify({favorite: true})
-    //        })
-    //    .then((resp) => resp.json())
-    //    .then((favPost) => onFavorite(favPost))
+        setIsFavorite(!isFavorite)
+        fetch(`posts/${id}`, { 
+            method: "PATCH",  
+            headers: {
+                "Content-type": "application/json"
+            }, 
+             body: JSON.stringify({isFavorite: true})
+           })
+       .then((resp) => resp.json())
+       .then((favPost) => onFavorite(favPost))
        
        }
      
@@ -56,10 +57,11 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
             
           { showEdit? <EditForm onEditItem={submitNewEdit} post={post} /> : null}
             
-            <button onClick={toggleEditItem}>EDIT ITEM</button>
+            <button onClick={toggleEditItem} className="each-post-btn">EDIT ITEM</button>
 
-            <button onClick={handleDelete}>DELETE</button>
-           {favorite ? <button onClick={handleFavorite}>⭐</button> : <button onClick={handleFavorite}>☆</button>} 
+            <button onClick={handleDelete} className="each-post-btn">DELETE</button>
+            
+           {isFavorite ? <button onClick={handleFavorite} className="each-post-btn">⭐</button> : <button onClick={handleFavorite} className="each-post-btn">☆</button>} 
             <div>___________________________________________________________________</div>
         </div>
     );

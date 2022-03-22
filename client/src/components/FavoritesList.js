@@ -1,17 +1,17 @@
 import React from "react";
-import PostItem from "./PostItem";
+import FavPets from "./FavPets"
 
 function FavoritesList({posts, onUnFav}) {
 
     const favPosts = posts.map((post) => 
-        <PostItem 
+        <FavPets 
             post={post}
             key={post.id}
             onUnFav={onUnFav}
         />
     )
     return(
-        <div className="nav-item">
+        <div className="fav-list">
             <h3>Favorite Items</h3>
             {favPosts}
         </div>

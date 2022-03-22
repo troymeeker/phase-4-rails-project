@@ -53,9 +53,9 @@ function NewPost({onPostAdd}){
 
     return( 
         <div >
-        {showform? <button onClick={toggleRenderForm}>Hide Form</button> : <button onClick={toggleRenderForm}>Create new posting</button>} 
+        {showform? <button onClick={toggleRenderForm} className="newpost-button">HIDE FORM</button> : <button className="newpost-button" onClick={toggleRenderForm}>CREATE NEW POSTING</button>} 
        { showform? <form onSubmit={submitNewPost} className="newpost">
-           <h4>Create Post</h4><br/>
+           <h4>CREATE POST</h4><br/>
              <label>Item Name </label>
              <input
                 type="text"
@@ -89,9 +89,8 @@ function NewPost({onPostAdd}){
                  <option id="category_id" value='3'>Free</option>
              </select><br/>
 
-             <button>Add Item</button>
-             
-        
+             <button className="add-btn">ADD ITEM</button>
+                     
          </form> : null}
         
      </div>

@@ -6,6 +6,26 @@
 
  
 }
+.navbar{
+  list-style: none;
+  display: flex;
+  padding: 10px;
+
+}
+.navbar-item{
+  list-style: none;
+  display: flex;
+  padding: 10px;
+  color:black;
+
+}
+.navbar-item:after{
+  list-style: none;
+  display: flex;
+  padding: 10px;
+  color:black;
+
+}
 
 .userForm{
   padding: 0px;
@@ -23,14 +43,14 @@
   line-height: 35px;
 }
 .unauthpage{
-  background-color: rgb(150, 150, 150);
+  background-color: rgb(143, 151, 197);
   line-height: 35px;
   padding: 25px;
   height: 200vh;
   text-align: center;
 }
 .signup{
-  background-color: rgb(211, 209, 207);
+  background-color: rgb(190,190,190);
   line-height: 30px;
   padding: 10px;
   width: 40%;
@@ -39,10 +59,12 @@
   border: 1.5px solid black;
   position: relative;
   left: 30%;
+  border-radius: 10%;
+  
 
 }
 .login{
-  background-color: rgb(209, 212, 209);
+  background-color: rgb(190, 190, 190);
   line-height: 30px;
   padding: 10px;
   width: 40%;
@@ -50,10 +72,11 @@
   border: 1.5px solid black;
   position: relative;
   left: 30%;
+  border-radius: 10%;
 
 }
 .newpost{
-  background-color: rgb(170, 170, 170);
+  background-color: rgb(172, 189, 224);
   width: 40vw;
   margin: 1.5%;
   text-align: center;
@@ -63,8 +86,18 @@
  
   border: 1px solid black;
   position: relative;
-  left: 15%;
+  left: 18%;
   
+}
+.newpost-button{
+  margin:15px;
+  padding:9px;
+  position: relative;
+  left:35%;
+  background-color: rgb(105, 105, 105);
+  border-radius: 5px;
+  color: white;
+
 }
 .edit{
   background-color: rgb(170, 170, 170);
@@ -84,7 +117,7 @@
 
  }
 
-.header{
+.nav-header{
  
   background-color:rgb(151, 148, 148);
   padding:5px;
@@ -92,10 +125,24 @@
   
   margin: 0px;
   display: flex;
-  align-items: center;
-  width: 95vw;
+  justify-content: space-around;
+  width: 100vw;
+  
 
 }
+.header{
+  background-color:rgb(151, 148, 148);
+  padding:5px;
+  height: 12vh;
+  
+  margin: 0px;
+  display: flex;
+  align-items: center;
+
+  width: 80vw;
+  
+}
+
 .saleList{
   position: relative;
   left: 40%;
@@ -115,27 +162,88 @@
   
 }
 .description-field{
-  height: 75px;
+  height: 70px;
   width: 190px;
  
 }
-.nav-item{
-  border: 1px solid black;
-  width: fit-content;
-  padding: 2px;
-}
-.logout-button{
-  margin-left: 50vw;
-  height: 26px;
-  width: 60px;
+.navbar-item{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #dadada;
+  
+  
   
 
 }
+/* .navbar-item{
+
+  color: black;
+  
+} */
+.logout-button{
+  
+  height: 48px;
+  width: 80px;
+  background-color: rgb(0, 0, 0);
+  color:rgb(221, 221, 221);
+  border-radius: 15px;
+  font-family:sans-serif;
+  
+  }
 .unauth-header{
-   
-  background-color:rgb(128, 128, 128);
+  background-color:rgb(118, 133, 230);
   padding:1px;
-  height: 7vh;
+  height: 6vh;
   border: 1px solid black;
   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+}
+.fav-list{
+  background-color: azure;
+
+}
+.text{
+  border: 1px solid gray;
+  width: 65vw;
+  margin-left: 15%;
+  padding: 10px;
+
+}
+.unauth-button{
+  background-color: rgb(42, 56, 82);
+  color:azure;
+  border-radius: 5px;
+  
+  border:.5px solid black;
+  height: 27px;
+  font-family: sans-serif;
+
+ 
+}
+.add-btn{
+  border-radius: 7px;
+  
+  background-color: rgb(115, 115, 117);
+  color: white;
+  margin: 3px;
+  padding: 5px;
+  font-family: sans-serif;
+
+}
+.each-post-btn{
+  border-radius: 7px;
+  
+  background-color: rgb(115, 115, 117);
+  color: white;
+  margin: 3px;
+  padding: 5px;
+  font-family: sans-serif;
+ 
 }

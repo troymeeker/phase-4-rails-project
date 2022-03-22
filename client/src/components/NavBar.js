@@ -1,18 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({currentUser, setCurrentUser}) => {
+
+    function handleLogout(){
+        fetch("/logout", {
+            method: "DELETE", 
+        })
+        .then(res => {
+            if(res.ok){
+              setCurrentUser(null)
+            }
+        })
+    }
   
   return (
     <div >
-      <nav className='header'>
-        <ul >
-         <li><Link to ='/'>Home</Link> </li>
-         <li><Link to='/layout'>Layout</Link></li>
-         <li><Link to='/new'>Create New Posting</Link></li>
-        
+      <nav className='nav-header'>
+        <ul className='navbar'>
+         <li className='navbar-item'><Link to ='/'>HOME</Link> </li>
+         <li className='navbar-item'><Link to='/about'>ABOUT</Link></li>
+         <li className='navbar-item'><Link to='/new'>CREATE NEW POSTING</Link></li>
+         <li className='navbar-item'><Link to='/favorites'>FAVORITES LIST</Link></li>
+         <li className='navbar-item'>TEST</li>
           
         </ul>
+        <button className="logout-button" onClick={handleLogout}>LOG OUT</button>
       </nav>  
     </div>
   );

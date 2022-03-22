@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import '../css/index.css';
-// import { UserContext, UserProvider } from './UserContext';
 import Home from './Home';
-// import NavBar from './NavBar';
-// import NewPost from './NewPost';
-// import PostItem from './PostItem';
 import UnauthenticatedUserApp from './UnauthenticatedUserApp';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-
-import Layout from "./Layout";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import About from "./About";
 import NavBar from "./NavBar";
 import NewPost from './NewPost';
+import FavoritesList from './FavoritesList';
+
 
 function App() {
+  const [posts, setPosts] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-
   const [authChecked, setAuthChecked] = useState(false);
 
 
@@ -33,6 +30,32 @@ function App() {
     })
   }, [])
 
+  function handlePostAdd(post){
+
+    fetch("/posts", {
+        method: "POST", 
+        headers: {
+           "Content-Type": "application/json"
+        },
+        body: JSON.stringify(post)
+    })
+    .then((resp) => resp.json())
+    .then((post) => {
+         setPosts([...posts, post])
+    })
+  }
+
+  function handleUnFavorite(unfavPet){
+    const unfavPets = posts.map((postObj) => {
+      if(postObj.id === unfavPet.id){
+          return unfavPet
+      }else{
+          return postObj
+      }
+    })
+    setPosts(unfavPets);
+  }
+
 
 
   if (!authChecked) { return <div>test</div> }
@@ -41,22 +64,20 @@ function App() {
           <div >
            
            <Router>
-             <NavBar/>
-             <Routes>
-              <Route path="/" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
-              <Route path="/layout" element={<Layout />}/>
-              <Route path="/new" element={<NewPost />}/>
+              <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+              <Routes>
+               
+                <Route path="/" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
+                <Route path="/about" element={<About />}/>
+                <Route path="/new" element={<NewPost onPostAdd={handlePostAdd}/>}/>
+                <Route path="/favorites" element={<FavoritesList posts={posts} onUnFav={handleUnFavorite}/>}/>
               
-            </Routes>
-            
-
+              </Routes>
             </Router>
           </div>
         ) : (
-        <UnauthenticatedUserApp setCurrentUser={setCurrentUser}/>
-        )
-   
-      
+          <UnauthenticatedUserApp setCurrentUser={setCurrentUser}/>
+        )    
       )
     }
 

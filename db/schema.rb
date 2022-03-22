@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_184059) do
     t.integer "price"
     t.integer "category_id"
     t.integer "user_id"
+    t.boolean "isFavorite"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -38,7 +38,7 @@ const Signup = ({setCurrentUser}) => {
 
     return (
         <div className="signup" >
-            <h2 className="unauth-header">Create an account</h2>
+            <h2 className="unauth-header">CREATE AN ACCOUNT</h2>
             <form onSubmit={createUser}>
                 
                 <label className="userFormItem">Username</label><br/>
@@ -48,7 +48,7 @@ const Signup = ({setCurrentUser}) => {
                 <label className="userFormItem">Confirm Password</label><br/>
                 <input type="password" name="password" placeholder="confirm password" value={passwordConfirmation} onChange={(e)=> setPasswordConfirmation(e.target.value)}/><br/>
 
-                <button type="submit">Create Account</button>
+                <button type="submit" className="unauth-button">CREATE ACCOUNT</button>
                
             </form>
             
