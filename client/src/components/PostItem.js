@@ -45,6 +45,20 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
        .then((favPost) => onFavorite(favPost))
        
        }
+
+    //    function handleUnFavorite(){
+    //     setIsFavorite(!isFavorite)
+    //     fetch(`posts/${id}`, { 
+    //         method: "PATCH",  
+    //         headers: {
+    //             "Content-type": "application/json"
+    //         }, 
+    //          body: JSON.stringify({isFavorite: false})
+    //        })
+    //    .then((resp) => resp.json())
+    //    .then((favPost) => onFavorite(favPost))
+       
+    //    }
      
     
     return (
@@ -55,13 +69,18 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
             <h4> Description: {description}</h4>
             <h4>Price: ${price}</h4>
             
-          { showEdit? <EditForm onEditItem={submitNewEdit} post={post} /> : null}
+          { showEdit ? <EditForm onEditItem={submitNewEdit} post={post} /> : null}
             
             <button onClick={toggleEditItem} className="each-post-btn">EDIT ITEM</button>
 
             <button onClick={handleDelete} className="each-post-btn">DELETE</button>
             
-           {isFavorite ? <button onClick={handleFavorite} className="each-post-btn">⭐</button> : <button onClick={handleFavorite} className="each-post-btn">☆</button>} 
+           { isFavorite ? 
+                (
+                <button onClick={handleFavorite} className="each-post-btn">⭐</button>
+                ) : (
+                <button onClick={handleFavorite} className="each-post-btn">☆</button>
+                ) } 
             <div>___________________________________________________________________</div>
         </div>
     );

@@ -52,7 +52,7 @@ function NewPost({onPostAdd}){
    }
 
     return( 
-        <div >
+        <div className="new-item-page">
         {showform? <button onClick={toggleRenderForm} className="newpost-button">HIDE FORM</button> : <button className="newpost-button" onClick={toggleRenderForm}>CREATE NEW POSTING</button>} 
        { showform? <form onSubmit={submitNewPost} className="newpost">
            <h4>CREATE POST</h4><br/>

@@ -60,7 +60,7 @@
 
 }
 .newpost{
-  background-color: rgb(172, 189, 224);
+  background-color: rgb(121, 153, 218);
   width: 40vw;
   margin: 1.5%;
   text-align: center;
@@ -113,13 +113,16 @@
 }
 .header{
   background-color:rgb(151, 148, 148);
-  padding:5px;
+  padding:4px;
   height: 12vh;
-  margin: 0px;
-  display: flex;
-  align-items: center;
+  margin: 5px;
   width: 80vw;
+  text-align: center;
   
+}
+.new-item-page{
+  background-color: aquamarine;
+  height: 150vh;
 }
 
 .saleList{
@@ -174,7 +177,6 @@
   padding:1px;
   height: 6vh;
   border: 1px solid black;
-  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,14 +184,32 @@
   
 }
 .fav-list{
-  background-color: azure;
+  background-color: rgb(181, 204, 204);
+  height: 150vh;
+  text-align: center;
+  padding: 10px;
+
+}
+.about{
+  text-align: center;
+  border: 1px solid gray;
+  height: 150vh;
+ 
+  padding: 10px;
+  line-height: 30px;
+  background-color: rgb(250, 226, 175);
+  
 
 }
 .text{
-  border: 1px solid gray;
-  width: 65vw;
-  margin-left: 15%;
+ 
+  border: 1px solid black;
+  width: 65%;
+  margin-top: 10px;
   padding: 10px;
+  line-height: 30px;
+  background-color: rgb(216, 206, 206);
+  margin-left: 18%;
 
 }
 .unauth-button{

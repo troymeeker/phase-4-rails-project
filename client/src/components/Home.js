@@ -12,9 +12,7 @@ function Home({ currentUser, setCurrentUser}){
     .then((resp) => resp.json())
     .then((posts) => setPosts(posts))
   }, []);
-   
-
-   
+     
 
     function handlePostDelete(id){
         const updatedPosts = posts.filter((post) => post.id !== id)
