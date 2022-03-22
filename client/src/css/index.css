@@ -10,21 +10,7 @@
   list-style: none;
   display: flex;
   padding: 10px;
-
-}
-.navbar-item{
-  list-style: none;
-  display: flex;
-  padding: 10px;
-  color:black;
-
-}
-.navbar-item:after{
-  list-style: none;
-  display: flex;
-  padding: 10px;
-  color:black;
-
+  
 }
 
 .userForm{
@@ -55,13 +41,11 @@
   padding: 10px;
   width: 40%;
   text-align: center;
-
   border: 1.5px solid black;
   position: relative;
   left: 30%;
   border-radius: 10%;
   
-
 }
 .login{
   background-color: rgb(190, 190, 190);
@@ -83,7 +67,6 @@
   height: 40vh;
   border-radius: 5%;
   line-height: 30px;
- 
   border: 1px solid black;
   position: relative;
   left: 18%;
@@ -114,7 +97,6 @@
 }
 .list{
   list-style: none;
-
  }
 
 .nav-header{
@@ -122,7 +104,6 @@
   background-color:rgb(151, 148, 148);
   padding:5px;
   height: 12vh;
-  
   margin: 0px;
   display: flex;
   justify-content: space-around;
@@ -134,11 +115,9 @@
   background-color:rgb(151, 148, 148);
   padding:5px;
   height: 12vh;
-  
   margin: 0px;
   display: flex;
   align-items: center;
-
   width: 80vw;
   
 }
@@ -150,7 +129,6 @@
   
 }
 .each_post{
-  
   width: fit-content;
   padding: 25px;
   display: block;
@@ -166,31 +144,29 @@
   width: 190px;
  
 }
-.navbar-item{
+.nav-item{
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  color: #dadada;
-  
-  
-  
+  color: black;
+  padding: 15px;
 
 }
-/* .navbar-item{
+.nav-item:focus{
+  color:rgb(255, 255, 255);
+  background-color: black;
 
-  color: black;
-  
-} */
+}
 .logout-button{
-  
   height: 48px;
   width: 80px;
   background-color: rgb(0, 0, 0);
   color:rgb(221, 221, 221);
   border-radius: 15px;
   font-family:sans-serif;
+  margin: 10px;
   
   }
 .unauth-header{
@@ -220,7 +196,6 @@
   background-color: rgb(42, 56, 82);
   color:azure;
   border-radius: 5px;
-  
   border:.5px solid black;
   height: 27px;
   font-family: sans-serif;
@@ -229,7 +204,6 @@
 }
 .add-btn{
   border-radius: 7px;
-  
   background-color: rgb(115, 115, 117);
   color: white;
   margin: 3px;
@@ -239,7 +213,6 @@
 }
 .each-post-btn{
   border-radius: 7px;
-  
   background-color: rgb(115, 115, 117);
   color: white;
   margin: 3px;
