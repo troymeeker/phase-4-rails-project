@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = ({currentUser, setCurrentUser}) => {
-  const [favs, setFavs] = useState([])
+//   const [favs, setFavs] = useState([])
 
     function handleLogout(){
         fetch("/logout", {
@@ -22,7 +22,7 @@ const Navbar = ({currentUser, setCurrentUser}) => {
          <li><NavLink to='/' className="nav-item">HOME</NavLink> </li>
          <li><NavLink to='/about' className="nav-item">ABOUT</NavLink></li>
          <li><NavLink to='/new' className="nav-item" >CREATE NEW POSTING</NavLink></li>
-         <li><NavLink to='/favorites' className="nav-item">  FAVORITES </NavLink></li>
+         {/* <li><NavLink to='/favorites' className="nav-item">  FAVORITES </NavLink></li> */}
          {/* ⭐  */}
         
         </ul>

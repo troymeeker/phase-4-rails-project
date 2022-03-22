@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./About";
 import NavBar from "./NavBar";
 import NewPost from './NewPost';
-import FavoritesList from './FavoritesList';
+// import FavoritesList from './FavoritesList';
 
 
 function App() {
@@ -45,16 +45,16 @@ function App() {
     })
   }
 
-  function handleUnFavorite(unfavPet){
-    const unfavPets = posts.map((postObj) => {
-      if(postObj.id === unfavPet.id){
-          return unfavPet
-      }else{
-          return postObj
-      }
-    })
-    setPosts(unfavPets);
-  }
+  // function handleUnFavorite(unfavPet){
+  //   const unfavPets = posts.map((postObj) => {
+  //     if(postObj.id === unfavPet.id){
+  //         return unfavPet
+  //     }else{
+  //         return postObj
+  //     }
+  //   })
+  //   setPosts(unfavPets);
+  // }
 
 
 
@@ -70,7 +70,7 @@ function App() {
                 <Route path="/" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
                 <Route path="/about" element={<About />}/>
                 <Route path="/new" element={<NewPost onPostAdd={handlePostAdd}/>}/>
-                <Route path="/favorites" element={<FavoritesList posts={posts} onUnFav={handleUnFavorite}/>}/>
+                {/* <Route path="/favorites" element={<FavoritesList posts={posts} onUnFav={handleUnFavorite}/>}/> */}
               
               </Routes>
             </Router>
