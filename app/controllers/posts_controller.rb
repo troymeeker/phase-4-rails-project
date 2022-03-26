@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     post = Post.create!(post_params)
     
     if post
-      render json: post, include:['user','category'], status: :created
+      render json: post, include:['category'], status: :created
     else
       render json: post.errors, status: :unprocessable_entity
     end
