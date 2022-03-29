@@ -9,8 +9,34 @@
 .navbar{
   list-style: none;
   display: flex;
-  padding: 10px;
+  padding: 11px;
   
+  width:700px;
+    
+}
+.nav-header{
+ 
+  background-color:rgb(156, 155, 155);
+  height: 13vh;
+  display: flex;
+  justify-content: space-around;
+ 
+  
+}
+.nav-item{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-weight: bold;
+  color: black;
+  padding: 20px;
+
+}
+.nav-item:focus{
+  color:rgb(255, 255, 255);
+  background-color: black;
+
 }
 
 .userForm{
@@ -59,20 +85,8 @@
   border-radius: 10%;
 
 }
-.newpost{
-  background-color: rgb(121, 153, 218);
-  width: 40vw;
-  margin: 1.5%;
-  text-align: center;
-  height: 40vh;
-  border-radius: 5%;
-  line-height: 30px;
-  border: 1px solid black;
-  position: relative;
-  left: 18%;
-  
-}
-.newpost-button{
+
+/* .newpost-button{
   margin:15px;
   padding:9px;
   position: relative;
@@ -81,7 +95,7 @@
   border-radius: 5px;
   color: white;
 
-}
+} */
 .edit{
   background-color: rgb(170, 170, 170);
   width: 35vw;
@@ -99,31 +113,37 @@
   list-style: none;
  }
 
-.nav-header{
- 
+
+.header{
   background-color:rgb(151, 148, 148);
   padding:5px;
   height: 12vh;
-  margin: 0px;
-  display: flex;
-  justify-content: space-around;
-  width: 100vw;
+  margin-left: 195px;
+ 
   
-
-}
-.header{
-  background-color:rgb(151, 148, 148);
-  padding:4px;
-  height: 12vh;
-  margin: 5px;
-  margin-left: 60px;
-  width: 80vw;
+  width: 60vw;
   text-align: center;
   
 }
 .new-item-page{
-  background-color: aquamarine;
+  background-color: rgb(95, 99, 121);
   height: 150vh;
+  padding:25px;
+ 
+ 
+}
+.newpost{
+  background-color: rgb(121, 153, 218);
+  width: 45vw;
+  padding:5px;
+  text-align: center;
+  height: 42vh;
+  border-radius: 25px;
+  line-height: 30px;
+  /* border: 1px solid black; */
+  position: relative;
+  left: 18%;
+  
 }
 
 .saleList{
@@ -148,27 +168,13 @@
   width: 190px;
  
 }
-.nav-item{
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: black;
-  padding: 15px;
 
-}
-.nav-item:focus{
-  color:rgb(255, 255, 255);
-  background-color: black;
-
-}
 .logout-button{
   height: 48px;
-  width: 80px;
+  width: 82px;
   background-color: rgb(0, 0, 0);
   color:rgb(221, 221, 221);
-  border-radius: 15px;
+  border-radius: 12px;
   font-family:sans-serif;
   margin: 10px;
   
@@ -193,24 +199,26 @@
 }
 .about{
   text-align: center;
-  border: 1px solid gray;
+  
   height: 150vh;
  
-  padding: 10px;
-  line-height: 30px;
+  padding: 25px;
+  line-height: 40px;
   background-color: rgb(250, 226, 175);
   
 
 }
 .text{
  
-  border: 1px solid black;
-  width: 65%;
+  /* border: 1px solid black; */
+  border-radius: 12px;
+  width: 70%;
   margin-top: 10px;
   padding: 10px;
-  line-height: 30px;
+  line-height: 35px;
   background-color: rgb(216, 206, 206);
   margin-left: 18%;
+  height: 150px;
 
 }
 .unauth-button{

@@ -58,12 +58,13 @@ function App() {
 
 
 
-  if (!authChecked) { return <div>test</div> }
+if (!authChecked) { return <div>test</div> }
     return (     
       currentUser ? (
           <div >
            
            <Router>
+             
               <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
               <Routes>
                

@@ -3,7 +3,7 @@ import React, {useState} from "react";
 function NewPost({onPostAdd}){
     
   
-    const [showform, setShowForm] = useState(false);
+    // const [showform, setShowForm] = useState(false);
     // const [formData, setFormData] = useState(initState);
    
     const [item_name, setItemName] = useState("");
@@ -12,9 +12,9 @@ function NewPost({onPostAdd}){
     const [category_id, setCategoryId] = useState("");
    
 
-    function toggleRenderForm(){
-        setShowForm(!showform)
-    }
+    // function toggleRenderForm(){
+    //     setShowForm(!showform)
+    // }
 
 
     function submitNewPost(e){
@@ -53,9 +53,9 @@ function NewPost({onPostAdd}){
 
     return( 
         <div className="new-item-page">
-        {showform? <button onClick={toggleRenderForm} className="newpost-button">HIDE FORM</button> : <button className="newpost-button" onClick={toggleRenderForm}>CREATE NEW POSTING</button>} 
-       { showform? <form onSubmit={submitNewPost} className="newpost">
-           <h4>CREATE POST</h4><br/>
+        {/* {showform? <button onClick={toggleRenderForm} className="newpost-button">HIDE FORM</button> : <button className="newpost-button" onClick={toggleRenderForm}>CREATE NEW POSTING</button>}   */}
+       <form onSubmit={submitNewPost} className="newpost">
+           <h4>CREATE NEW POST</h4><br/>
              <label>Item Name </label>
              <input
                 type="text"
@@ -91,7 +91,7 @@ function NewPost({onPostAdd}){
 
              <button className="add-btn">ADD ITEM</button>
                      
-         </form> : null}
+         </form>
         
      </div>
     )
