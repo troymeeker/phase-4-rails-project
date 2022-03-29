@@ -9,6 +9,9 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
 
     const [showEdit, setShowEdit] = useState(false);
     const [isFavorite, setIsFavorite] = useState(false);
+   
+    
+   
 
     
     const {id, item_name, description, price} = post;
@@ -59,7 +62,8 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
     //    .then((favPost) => onFavorite(favPost))
        
     //    }
-     
+  
+    
     
     return (
         
@@ -81,7 +85,8 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
                 ) : (
                 <button onClick={handleFavorite} className="each-post-btn">☆</button>
                 ) } 
-            <div>___________________________________________________________________</div>
+          
+            <div>______________________________________________________________</div>
         </div>
     );
 }

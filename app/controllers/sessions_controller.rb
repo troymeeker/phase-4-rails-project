@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
             #session is stored, logging user in
             render json: user, status: :ok
         else
-            render json: { errors: ["Invalid username or password"] }, status: :unauthorized
+            render json: { errors: {login: "Invalid username or password"} }, status: :unauthorized
         end
 
     end

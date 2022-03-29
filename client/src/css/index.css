@@ -134,10 +134,10 @@
 }
 .newpost{
   background-color: rgb(121, 153, 218);
-  width: 45vw;
-  padding:5px;
+  width: fit-content;
+  padding:40px;
   text-align: center;
-  height: 42vh;
+  height: fit-content;
   border-radius: 25px;
   line-height: 30px;
   /* border: 1px solid black; */
@@ -200,7 +200,7 @@
 .about{
   text-align: center;
   
-  height: 150vh;
+  height: 160vh;
  
   padding: 25px;
   line-height: 40px;
@@ -214,11 +214,11 @@
   border-radius: 12px;
   width: 70%;
   margin-top: 10px;
-  padding: 10px;
+  padding: 15px;
   line-height: 35px;
   background-color: rgb(216, 206, 206);
   margin-left: 18%;
-  height: 150px;
+  height: fit-content;
 
 }
 .unauth-button{
