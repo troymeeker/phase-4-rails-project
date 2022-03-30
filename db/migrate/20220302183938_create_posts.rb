@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.integer :price
       t.integer :category_id
       t.integer :user_id
-      t.boolean :isFavorite
+     
 
       t.timestamps
     end

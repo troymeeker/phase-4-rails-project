@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+
+  get "/posts/price", to: "posts#posts_by_price"
+  get "/posts/order", to: "posts#order"
   
  
 

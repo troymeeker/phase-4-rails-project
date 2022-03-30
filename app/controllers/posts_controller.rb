@@ -1,11 +1,15 @@
 class PostsController < ApplicationController
  
+  # skip_before_action :authorize, only: [:index, :show, :create]
+ 
 
   # GET /posts
   def index
     posts = Post.all
     render json: posts
   end
+
+
 
   # # GET /posts/1
   def show
@@ -43,6 +47,16 @@ class PostsController < ApplicationController
     # head :no_content
   end
 
+  def posts_by_price
+    posts = Post.order(:price)
+    render json: posts
+  end
+
+  def order
+    posts = Post.order(:item_name)
+    render json: posts
+  end
+
   private
 
   #   # Use callbacks to share common setup or constraints between actions.
@@ -54,4 +68,8 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:id, :item_name, :description, :price, :category_id, :isFavorite)
     end
+
+  
+    
+
 end

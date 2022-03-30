@@ -43,6 +43,16 @@ function Home({ currentUser, setCurrentUser}){
       })
       setPosts(favoritedPosts);
     }
+    function handleSortAlpha(){
+      fetch('/posts/order')
+       .then((resp) => resp.json())
+       .then((posts) => setPosts(posts))
+    }
+    function handleSortPrice(){
+      fetch('/posts/price')
+       .then((resp) => resp.json())
+       .then((posts) => setPosts(posts))
+    }
 
     return (
         <div className="authpage">
@@ -53,6 +63,8 @@ function Home({ currentUser, setCurrentUser}){
           
          </div>
           {/* <NewPost onPostAdd={handlePostAdd} />  */}
+          <button onClick={handleSortPrice}>Filter Items by Price</button>
+          <button onClick={handleSortAlpha}>Filter alphabetically</button>
         <div>___________________________________________________________________</div>
           
             { posts.map((post) => (
@@ -64,7 +76,9 @@ function Home({ currentUser, setCurrentUser}){
                 setPosts={setPosts}
                 onFavorite={handleFavorite}
               />
+
              ))}
+             
           
         </div>
     )

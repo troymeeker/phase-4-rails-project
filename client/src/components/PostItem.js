@@ -10,10 +10,7 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
     const [showEdit, setShowEdit] = useState(false);
     const [isFavorite, setIsFavorite] = useState(false);
    
-    
-   
-
-    
+       
     const {id, item_name, description, price} = post;
 
     function toggleEditItem(){
@@ -37,15 +34,15 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
 
     function handleFavorite(){
         setIsFavorite(!isFavorite)
-        fetch(`posts/${id}`, { 
-            method: "PATCH",  
-            headers: {
-                "Content-type": "application/json"
-            }, 
-             body: JSON.stringify({isFavorite: true})
-           })
-       .then((resp) => resp.json())
-       .then((favPost) => onFavorite(favPost))
+    //     fetch(`posts/${id}`, { 
+    //         method: "PATCH",  
+    //         headers: {
+    //             "Content-type": "application/json"
+    //         }, 
+    //          body: JSON.stringify({isFavorite: true})
+    //        })
+    //    .then((resp) => resp.json())
+    //    .then((favPost) => onFavorite(favPost))
        
        }
 

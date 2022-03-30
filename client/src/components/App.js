@@ -39,6 +39,7 @@ function App() {
         },
         body: JSON.stringify(post)
     })
+    
     .then((resp) => resp.json())
     .then((post) => {
          setPosts([...posts, post])
