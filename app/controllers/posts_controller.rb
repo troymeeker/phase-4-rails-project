@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
  
-  # skip_before_action :authorize, only: [:index, :show, :create]
  
+  before_action :set_post, only: [:show, :update, :destroy]
+  before_action :is_authorized, only: [:update, :destroy]
+  
 
   # GET /posts
   def index
@@ -9,65 +11,66 @@ class PostsController < ApplicationController
     render json: posts
   end
 
-
-
   # # GET /posts/1
   def show
-    post = find_post
-    render json: post
+    render json: @post
   end
 
   # # POST /posts
   def create
-    #  byebug
-    post = Post.create!(post_params)
+    @post = Post.create!(post_params)
     
-    if post
-      render json: post, include:['category'], status: :created
+    if @post
+      render json: @post, include:['category'], status: :created
     else
-      render json: post.errors, status: :unprocessable_entity
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
   # # PATCH /posts/1
   def update
-    post = find_post
-    if post
-      post.update(post_params)
-      render json: post, status: :accepted
+   
+    if @post
+      @post.update(post_params)
+      render json: @post, status: :accepted
     else
-      render json: post.errors, status: :not_found
+      render json: @post.errors, status: :not_found
     end
   end
 
   # # DELETE /posts/1
   def destroy
-    post = find_post
-    post.destroy
+    @post.destroy
     # head :no_content
   end
 
+  #get 
   def posts_by_price
     posts = Post.order(:price)
     render json: posts
   end
 
+  #get
   def order
     posts = Post.order(:item_name)
     render json: posts
   end
 
+
+
   private
 
-  #   # Use callbacks to share common setup or constraints between actions.
-    def find_post
-     Post.find(params[:id])
+    def set_post
+     @post = Post.find(params[:id])
     end
+
+ 
 
   #   # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:id, :item_name, :description, :price, :category_id, :isFavorite)
+      params.require(:post).permit( :item_name, :description, :price, :category_id)
     end
+
 
   
     

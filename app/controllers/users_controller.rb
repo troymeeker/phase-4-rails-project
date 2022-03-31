@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
  
+ skip_before_action :is_authorized, only: [:show, :create]
 
   def show
     if current_user 
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       render json: user, status: :ok
     else 
-      render json: { error: user.errors }, status: :unprocessable_entity
+      render json: { error: "user must have a username and password" }, status: :unprocessable_entity
     end
   end
 

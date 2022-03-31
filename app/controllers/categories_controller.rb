@@ -14,6 +14,8 @@ class CategoriesController < ApplicationController
     render json: category
   end
 
+  
+
  
 
   private

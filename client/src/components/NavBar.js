@@ -6,13 +6,10 @@ const Navbar = ({currentUser, setCurrentUser}) => {
 
     function handleLogout(){
         fetch("/logout", {
-            method: "DELETE", 
+            method: "DELETE" 
         })
-        .then(res => {
-            if(res.ok){
-              setCurrentUser(null)
-            }
-        })
+       setCurrentUser(null)
+    
     }
   
   return (
@@ -22,8 +19,7 @@ const Navbar = ({currentUser, setCurrentUser}) => {
          <li><NavLink to='/' className="nav-item">HOME</NavLink> </li>
          <li><NavLink to='/about' className="nav-item">ABOUT</NavLink></li>
          <li><NavLink to='/new' className="nav-item" >CREATE NEW POSTING</NavLink></li>
-         {/* <li><NavLink to='/favorites' className="nav-item">  FAVORITES </NavLink></li> */}
-         {/* ⭐  */}
+     
         
         </ul>
         

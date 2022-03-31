@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import EditForm from "./EditForm";
 
-const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
+const PostItem = ({post, onItemDelete, onEditItem, currentUser}) => {
     //  const {item_name, setItemName} = useContext(UserContext);
 
     const [showEdit, setShowEdit] = useState(false);
@@ -34,31 +34,9 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
 
     function handleFavorite(){
         setIsFavorite(!isFavorite)
-    //     fetch(`posts/${id}`, { 
-    //         method: "PATCH",  
-    //         headers: {
-    //             "Content-type": "application/json"
-    //         }, 
-    //          body: JSON.stringify({isFavorite: true})
-    //        })
-    //    .then((resp) => resp.json())
-    //    .then((favPost) => onFavorite(favPost))
-       
+    
        }
 
-    //    function handleUnFavorite(){
-    //     setIsFavorite(!isFavorite)
-    //     fetch(`posts/${id}`, { 
-    //         method: "PATCH",  
-    //         headers: {
-    //             "Content-type": "application/json"
-    //         }, 
-    //          body: JSON.stringify({isFavorite: false})
-    //        })
-    //    .then((resp) => resp.json())
-    //    .then((favPost) => onFavorite(favPost))
-       
-    //    }
   
     
     
@@ -70,11 +48,11 @@ const PostItem = ({post, onItemDelete, onEditItem, onFavorite}) => {
             <h4> Description: {description}</h4>
             <h4>Price: ${price}</h4>
             
-          { showEdit ? <EditForm onEditItem={submitNewEdit} post={post} /> : null}
-            
+            { showEdit ? <EditForm onEditItem={submitNewEdit} post={post} /> : null}
+                       
             <button onClick={toggleEditItem} className="each-post-btn">EDIT ITEM</button>
-
             <button onClick={handleDelete} className="each-post-btn">DELETE</button>
+                    
             
            { isFavorite ? 
                 (

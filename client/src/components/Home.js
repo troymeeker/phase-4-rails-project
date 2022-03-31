@@ -31,23 +31,25 @@ function Home({ currentUser, setCurrentUser}){
       setPosts(updatedPosts);
     }
     
-    function handleFavorite(favoritedPost){
+    // function handleFavorite(favoritedPost){
 
-      const favoritedPosts = posts.map((postObj) => {
-        if(postObj.id === favoritedPost.id){
-          return favoritedPost
-        } else {
-          return postObj
-        }
+    //   const favoritedPosts = posts.map((postObj) => {
+    //     if(postObj.id === favoritedPost.id){
+    //       return favoritedPost
+    //     } else {
+    //       return postObj
+    //     }
 
-      })
-      setPosts(favoritedPosts);
-    }
+    //   })
+    //   setPosts(favoritedPosts);
+    // }
+
     function handleSortAlpha(){
       fetch('/posts/order')
        .then((resp) => resp.json())
        .then((posts) => setPosts(posts))
     }
+
     function handleSortPrice(){
       fetch('/posts/price')
        .then((resp) => resp.json())
@@ -74,7 +76,8 @@ function Home({ currentUser, setCurrentUser}){
                 onItemDelete={handlePostDelete}
                 onEditItem={handleEditPost}
                 setPosts={setPosts}
-                onFavorite={handleFavorite}
+                currentUser={currentUser}
+                
               />
 
              ))}
