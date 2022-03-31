@@ -58,21 +58,23 @@ class PostsController < ApplicationController
 
 
 
-  private
 
-    def set_post
-     @post = Post.find(params[:id])
-    end
-
- 
-
-  #   # Only allow a list of trusted parameters through.
+  private   
+    #  Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit( :item_name, :description, :price, :category_id)
     end
 
-
+    def set_post
+     @post = Post.find(params[:id])
+    end
   
-    
+    def is_authorized
+     
+      authorized = ( current_user == @post.user || current_user.admin?)
+      render json: {error: "You are not authorized for this action"}, status: :forbidden unless authorized
+  
+    end
+    #admin working, but post user does not yet have ability to perform edit/delete
 
 end

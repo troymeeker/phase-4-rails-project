@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
  
- skip_before_action :is_authorized, only: [:show, :create]
+
 
   def show
     if current_user 

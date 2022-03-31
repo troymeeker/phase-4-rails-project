@@ -2,7 +2,8 @@ puts "starting seeding"
 
 user1 = User.create(username:"john", password:"testtest" )
 user2 = User.create(username:"susan", password:"testtest")
-user3 = User.create(username:"testadmin", password:"password")
+user3 = User.create(username:"testadmin", password:"password", admin:true)
+# user4 = User.create()
 
 
 cat1 = Category.create(category_type:"Sporting Goods")

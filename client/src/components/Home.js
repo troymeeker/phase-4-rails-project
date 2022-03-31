@@ -31,18 +31,7 @@ function Home({ currentUser, setCurrentUser}){
       setPosts(updatedPosts);
     }
     
-    // function handleFavorite(favoritedPost){
-
-    //   const favoritedPosts = posts.map((postObj) => {
-    //     if(postObj.id === favoritedPost.id){
-    //       return favoritedPost
-    //     } else {
-    //       return postObj
-    //     }
-
-    //   })
-    //   setPosts(favoritedPosts);
-    // }
+ 
 
     function handleSortAlpha(){
       fetch('/posts/order')
@@ -79,10 +68,8 @@ function Home({ currentUser, setCurrentUser}){
                 currentUser={currentUser}
                 
               />
-
              ))}
-             
-          
+        
         </div>
     )
 }

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
   include ActionController::Cookies
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
  
-  before_action :is_authorized
+  #  before_action :is_authorized
 
   
 
@@ -16,13 +16,8 @@ class ApplicationController < ActionController::API
 
   end
 
-
-
-  def is_authorized
-
-    authorized = current_user.admin? || @post.user_id == current_user.id
-    render json: {error: "You are not authorized for this action"}, status: :unauthorized unless authorized
- 
-  end
   
+
+
+
 end
