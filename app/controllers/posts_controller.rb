@@ -18,12 +18,12 @@ class PostsController < ApplicationController
 
   # # POST /posts
   def create
-    @post = Post.create!(post_params)
+    post = Post.create!(post_params)
     
-    if @post
-      render json: @post, include:['category'], status: :created
+    if post
+      render json: post, include:['category'], status: :created
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render json: post.errors, status: :unprocessable_entity
     end
   end
 
@@ -65,14 +65,15 @@ class PostsController < ApplicationController
       params.require(:post).permit( :item_name, :description, :price, :category_id)
     end
 
+    #only for actions with id in their route
     def set_post
      @post = Post.find(params[:id])
     end
   
     def is_authorized
      
-      authorized = ( current_user == @post.user || current_user.admin?)
-      render json: {error: "You are not authorized for this action"}, status: :forbidden unless authorized
+      is_authorized = current_user.admin? || current_user.id == @post.user_id
+      render json: { error: "You are not authorized for this action" }, status: :forbidden unless is_authorized
   
     end
     #admin working, but post user does not yet have ability to perform edit/delete
