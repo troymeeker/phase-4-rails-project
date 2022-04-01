@@ -50,7 +50,7 @@ function Home({ currentUser, setCurrentUser}){
          
          <div className="header">
           <h2 id="mylist-header">MyList</h2>
-          <h3>Welcome {currentUser.username}!</h3> 
+          <h3>Welcome {currentUser.username[0].toUpperCase() + currentUser.username.substring(1)}!</h3> 
           
          </div>
           {/* <NewPost onPostAdd={handlePostAdd} />  */}

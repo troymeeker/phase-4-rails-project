@@ -1,20 +1,14 @@
 import React, { useState } from "react";
-
-// import { UserContext } from "./UserContext";
-
 import EditForm from "./EditForm";
 
 
 const PostItem = ({post, onItemDelete, onEditItem, currentUser}) => {
-
-    
-    //  const {item_name, setItemName} = useContext(UserContext);
-
+      
     const [showEdit, setShowEdit] = useState(false);
     const [isFavorite, setIsFavorite] = useState(false);
    
        
-    const {id, item_name, description, price, user_can_modify} = post;
+    const {id, item_name, description, price, user_can_modify, user_id} = post;
 
     function toggleEditItem(){
         setShowEdit(!showEdit)
@@ -37,11 +31,9 @@ const PostItem = ({post, onItemDelete, onEditItem, currentUser}) => {
 
     function handleFavorite(){
         setIsFavorite(!isFavorite)
-    
        }
 
   
-    
     
     return (
         
@@ -50,17 +42,18 @@ const PostItem = ({post, onItemDelete, onEditItem, currentUser}) => {
             <h3> {item_name} </h3>
             <h4> Description: {description}</h4>
             <h4>Price: ${price}</h4>
+            <h4>Posted By: {user_id}</h4>
             
             { showEdit ? <EditForm onEditItem={submitNewEdit} post={post} /> : null}
                        
-           { user_can_modify ? (
+           { user_can_modify ?
+            (
                <div>
                  <button onClick={toggleEditItem} className="each-post-btn">EDIT ITEM</button>
                  <button onClick={handleDelete} className="each-post-btn">DELETE</button>
                </div>
-           ) : null}
+             ) : null }
                 
-            
            { isFavorite ? 
                 (
                 <button onClick={handleFavorite} className="each-post-btn">⭐</button>

@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 
   # # POST /posts
   def create
-    post = Post.create!(post_params)
+    post = current_user.posts.create(post_params)
     
     if post
       render json: post, include:['category'], status: :created
@@ -62,7 +62,7 @@ class PostsController < ApplicationController
   private   
     #  Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit( :item_name, :description, :price, :category_id)
+      params.require(:post).permit( :item_name, :description, :price, :category_id, :user_id)
     end
 
     #only for actions with id in their route
@@ -74,7 +74,7 @@ class PostsController < ApplicationController
      
       is_authorized = current_user.admin? || current_user.id == @post.user_id
       render json: { error: "You are not authorized for this action" }, status: :forbidden unless is_authorized
-  
+
     end
     #admin working, but post user does not yet have ability to perform edit/delete
 

@@ -2,7 +2,8 @@ puts "starting seeding"
 
 user1 = User.create(username:"john", password:"testtest" )
 user2 = User.create(username:"susan", password:"testtest")
-user3 = User.create(username:"testadmin", password:"password", admin:true)
+user3 = User.create(username:"todd", password:"test")
+user4 = User.create(username:"testadmin", password:"password", admin:true)
 # user4 = User.create()
 
 
