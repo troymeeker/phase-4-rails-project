@@ -243,10 +243,30 @@
 }
 .each-post-btn{
   border-radius: 7px;
-  background-color: rgb(115, 115, 117);
+  background-color: rgb(117, 117, 117);
   color: white;
   margin: 3px;
   padding: 5px;
   font-family: sans-serif;
  
+}
+.filter-button{
+  border-radius: 7px;
+  background-color: rgb(17, 17, 17);
+  color: rgb(255, 255, 255);
+  margin: 5px;
+  padding: 6px;
+  font-family: sans-serif;
+
+
+}
+.filter-button:active{
+  border-radius: 7px;
+  background-color: rgb(2, 245, 95);
+  color: rgb(0, 0, 0);
+  margin: 5px;
+  padding: 6px;
+  font-family: sans-serif;
+
+
 }

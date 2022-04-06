@@ -7,7 +7,8 @@ function About(){
             <div className="text">
                 <p>
                     This is an application that is designed to mimic the basic functionality of craigslist. 
-                    A user can create an account or login to their existing account, create posts, read through current posts, update a posts description and price or delete a post. 
+                    A user can create an account or login to their existing account, create posts and read through current posts that have been made by other users. When a user creates a new item, only then
+                    will that user have permission to edit or delete that post.  An admin can have permission to edit or delete any post. 
                     This application will be expanded upon soon!<br/>
                     Thanks for visiting!
 

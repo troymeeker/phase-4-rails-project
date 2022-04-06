@@ -54,8 +54,8 @@ function Home({ currentUser, setCurrentUser}){
           
          </div>
           {/* <NewPost onPostAdd={handlePostAdd} />  */}
-          <button onClick={handleSortPrice}>Filter Items by Price</button>
-          <button onClick={handleSortAlpha}>Filter alphabetically</button>
+          <button onClick={handleSortPrice} className="filter-button">FILTER BY PRICE</button>
+          <button onClick={handleSortAlpha} className="filter-button">FILTER A-Z</button>
         <div>___________________________________________________________________</div>
           
             { posts.map((post) => (
