@@ -2,7 +2,6 @@ class UsersController < ApplicationController
  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
  
 
-
   def show
     if current_user 
       render json: current_user, status: :ok
@@ -21,7 +20,6 @@ class UsersController < ApplicationController
       render json: { error: "user must have a username and password" }, status: :unprocessable_entity
     end
   end
-
 
 
   private

@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
- 
- 
+  
   before_action :set_post, only: [:show, :update, :destroy]
   before_action :is_authorized, only: [:update, :destroy]
   
@@ -76,6 +75,6 @@ class PostsController < ApplicationController
       render json: { error: "You are not authorized for this action" }, status: :forbidden unless is_authorized
 
     end
-    #admin working, but post user does not yet have ability to perform edit/delete
+  
 
 end
