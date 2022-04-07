@@ -6,6 +6,8 @@ import PostItem from "./PostItem";
 function Home({ currentUser, setCurrentUser}){
 
   const [posts, setPosts] = useState([]);
+
+
   
   useEffect(() => {
     fetch('/posts')
@@ -52,10 +54,12 @@ function Home({ currentUser, setCurrentUser}){
           <h2 id="mylist-header">MyList</h2>
           <h3>Welcome {currentUser.username[0].toUpperCase() + currentUser.username.substring(1)}!</h3> 
           
+          
          </div>
-          {/* <NewPost onPostAdd={handlePostAdd} />  */}
+         
           <button onClick={handleSortPrice} className="filter-button">FILTER BY PRICE</button>
           <button onClick={handleSortAlpha} className="filter-button">FILTER A-Z</button>
+          {/* <h3> #{admin/user} functionality</h3> */}
         <div>___________________________________________________________________</div>
           
             { posts.map((post) => (

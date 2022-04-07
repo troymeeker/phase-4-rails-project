@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = ({currentUser, setCurrentUser}) => {
-//   const [favs, setFavs] = useState([])
+
 
     function handleLogout(){
         fetch("/logout", {
@@ -22,7 +22,7 @@ const Navbar = ({currentUser, setCurrentUser}) => {
      
         
         </ul>
-        
+       
         <button className="logout-button" onClick={handleLogout}>LOG OUT</button>
       </nav>  
     </div>

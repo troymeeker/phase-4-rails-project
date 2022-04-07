@@ -46,16 +46,6 @@ function App() {
     })
   }
 
-  // function handleUnFavorite(unfavPet){
-  //   const unfavPets = posts.map((postObj) => {
-  //     if(postObj.id === unfavPet.id){
-  //         return unfavPet
-  //     }else{
-  //         return postObj
-  //     }
-  //   })
-  //   setPosts(unfavPets);
-  // }
 
 
 
@@ -72,8 +62,7 @@ if (!authChecked) { return <div>test</div> }
                 <Route path="/" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
                 <Route path="/about" element={<About />}/>
                 <Route path="/new" element={<NewPost onPostAdd={handlePostAdd}/>}/>
-                {/* <Route path="/favorites" element={<FavoritesList posts={posts} onUnFav={handleUnFavorite}/>}/> */}
-              
+                
               </Routes>
             </Router>
           </div>
