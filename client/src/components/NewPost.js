@@ -1,25 +1,22 @@
 import React, {useState} from "react";
+import { NavLink } from "react-router-dom";
+
 
 function NewPost({onPostAdd}){
-    
+    // const navigate = useNavigate();
   
-    // const [showform, setShowForm] = useState(false);
-    // const [formData, setFormData] = useState(initState);
-   
     const [item_name, setItemName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [category_id, setCategoryId] = useState("");
    
 
-    // function toggleRenderForm(){
-    //     setShowForm(!showform)
-    // }
+  
 
 
     function submitNewPost(e){
         e.preventDefault();
-       
+        // navigate('/');
         const post = {
             item_name: item_name, 
             description: description, 
@@ -90,9 +87,10 @@ function NewPost({onPostAdd}){
              </select><br/>
 
              <button className="add-btn">ADD ITEM</button>
-                     
+                  
          </form>
-        
+         <button className="home-btn"><NavLink to='/' className="home-btn-link">HOME</NavLink> </button>
+                
      </div>
     )
 }

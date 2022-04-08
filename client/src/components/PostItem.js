@@ -44,7 +44,7 @@ const PostItem = ({post, onItemDelete, onEditItem, currentUser}) => {
             <h4>Price: ${price}</h4>
             {/* <h4>Posted By: {user_id}</h4> */}
             
-            { showEdit ? <EditForm onEditItem={submitNewEdit} post={post} /> : null}
+            { showEdit ? <EditForm onEditItem={submitNewEdit} post={post} toggleEditItem={toggleEditItem} /> : null}
                        
            { user_can_modify ?
             (

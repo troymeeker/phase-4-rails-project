@@ -5,6 +5,6 @@ class PostSerializer < ActiveModel::Serializer
     current_user.admin? || current_user == self.object.user
   end
  
-
+ 
   
 end

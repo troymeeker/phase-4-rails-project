@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import { UserContext } from "./UserContext";
 
-function EditForm({onEditItem, post}){
+function EditForm({onEditItem, post, toggleEditItem}){
         const {id, description, price } = post;
         const [updatedPrice, setUpdatedPrice] = useState(price)
         const [updatedDescription, setupdatedDescription] = useState(description);
@@ -13,6 +13,7 @@ function EditForm({onEditItem, post}){
     
     function handleFormSubmit(e){
           e.preventDefault();
+          toggleEditItem();
         // console.log('edit existing item');
 
         fetch(`/posts/${id}`, {
@@ -38,13 +39,13 @@ function EditForm({onEditItem, post}){
     return( 
     <div >
                         
-        <form className="edit" onSubmit={handleFormSubmit}>
+        <form className="edit" >
             <label>Edit Description</label>
             <input className="description-field" type="text" placeholder={description} value={updatedDescription} onChange={(e) => setupdatedDescription(e.target.value)}></input><br/>
             <label>Edit Price</label> 
             <input type="number" placeholder="New price" value={updatedPrice} onChange={(e) => setUpdatedPrice(parseFloat(e.target.value))}></input><br/>
             
-            <button type="submit" >Confirm Edit</button>
+            <button type="submit" onClick={handleFormSubmit}> Confirm Edit</button>
         </form>            
     </div>)
 }

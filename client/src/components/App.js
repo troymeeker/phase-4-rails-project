@@ -42,7 +42,7 @@ function App() {
     
     .then((resp) => resp.json())
     .then((post) => {
-         setPosts([...posts, post])
+         setPosts([...posts,post])
     })
   }
 

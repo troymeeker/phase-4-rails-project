@@ -29,8 +29,9 @@ const Signup = ({setCurrentUser}) => {
                     setCurrentUser(user)
                 })
             } else {
-                res.json().then((errors) => {
-                    alert('Please enter your username and password')
+                res.json().then((error) => {
+                      console.log(error);
+                     alert(JSON.stringify(error));
                 })
             }
         })

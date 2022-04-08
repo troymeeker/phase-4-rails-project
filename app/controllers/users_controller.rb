@@ -13,11 +13,11 @@ class UsersController < ApplicationController
   # POST /signup
   def create
     user = User.create(user_params) 
-    if user.valid?
+    if user.id
       session[:user_id] = user.id
       render json: user, status: :ok
     else 
-      render json: { error: "user must have a username and password" }, status: :unprocessable_entity
+      render json: { error: user.errors.full_messages.to_sentence }, status: :unprocessable_entity
     end
   end
 

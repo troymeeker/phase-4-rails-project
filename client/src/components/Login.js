@@ -24,9 +24,9 @@ const Login = ({setCurrentUser}) => {
                          setCurrentUser(user)
               })
             } else {
-                res.json().then(errors => { 
+                res.json().then((errors) => { 
                      console.log(errors)
-                     alert("Invalid Username or password")
+                     alert("Invalid Username or Password");
                     })
             }
            
