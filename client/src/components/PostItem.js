@@ -8,7 +8,7 @@ const PostItem = ({post, onItemDelete, onEditItem, currentUser}) => {
     const [isFavorite, setIsFavorite] = useState(false);
    
        
-    const {id, item_name, description, price, user_can_modify} = post;
+    const {id, item_name, description, price, user_can_modify } = post;
 
     function toggleEditItem(){
         setShowEdit(!showEdit)
@@ -42,7 +42,7 @@ const PostItem = ({post, onItemDelete, onEditItem, currentUser}) => {
             <h3> {item_name} </h3>
             <h4> Description: {description}</h4>
             <h4>Price: ${price}</h4>
-            {/* <h4>Posted By: {user_id}</h4> */}
+            
             
             { showEdit ? <EditForm onEditItem={submitNewEdit} post={post} toggleEditItem={toggleEditItem} /> : null}
                        

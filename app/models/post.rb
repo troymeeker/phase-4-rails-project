@@ -10,5 +10,12 @@ class Post < ApplicationRecord
     validates :item_name, presence: true
     validates :description, presence: true
 
+    def self.alpha
+        self.order(:item_name)
+    end
+
+    
+
+
 
 end

@@ -6,10 +6,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./About";
 import NavBar from "./NavBar";
 import NewPost from './NewPost';
-// import FavoritesList from './FavoritesList';
+
 
 
 function App() {
+ 
   const [posts, setPosts] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const [authChecked, setAuthChecked] = useState(false);
@@ -31,7 +32,7 @@ function App() {
   }, [])
 
   function handlePostAdd(post){
-
+    
     fetch("/posts", {
         method: "POST", 
         headers: {
@@ -44,9 +45,9 @@ function App() {
     .then((post) => {
          setPosts([...posts,post])
     })
+    
+
   }
-
-
 
 
 if (!authChecked) { return <div>test</div> }

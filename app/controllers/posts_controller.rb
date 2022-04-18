@@ -45,18 +45,19 @@ class PostsController < ApplicationController
 
   #get 
   def posts_by_price
-    posts = Post.order(:price)
+    posts = Post.order(price: :asc)
     render json: posts
   end
 
   #get
   def order
-    posts = Post.order(:item_name)
+    # posts = Post.order(item_name: :asc)
+    posts = Post.alpha
     render json: posts
   end
 
-
-
+  
+ 
 
   private   
     #  Only allow a list of trusted parameters through.

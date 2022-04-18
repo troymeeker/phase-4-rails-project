@@ -1,35 +1,40 @@
 import React, {useState} from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function NewPost({onPostAdd}){
-    // const navigate = useNavigate();
+     const navigate = useNavigate();
   
     const [item_name, setItemName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [category_id, setCategoryId] = useState("");
-   
+     
 
   
 
 
     function submitNewPost(e){
         e.preventDefault();
-        // navigate('/');
+         
         const post = {
             item_name: item_name, 
             description: description, 
             price: price, 
-            category_id: category_id
+            category_id: category_id, 
+            
         }
         onPostAdd(post)
         setItemName("")
         setDescription("")
         setPrice("")
         setCategoryId("")
+       
+
    } 
-   
+   function goHome(){
+       navigate('/');
+   }
    
    function handleItemChange(e){
        setItemName(e.target.value)
@@ -47,6 +52,8 @@ function NewPost({onPostAdd}){
        setCategoryId(e.target.value)
 
    }
+
+//   
 
     return( 
         <div className="new-item-page">
@@ -83,13 +90,14 @@ function NewPost({onPostAdd}){
                  <option id="category_id" value=''>Select One</option>
                  <option id="category_id" value='1'>Sporting</option>
                  <option id="category_id" value='2'>Tools</option>
-                 <option id="category_id" value='3'>Free</option>
+                 <option id="category_id" value='3'>Misc</option>
+                 <option id="category_id" value='4'>Free</option>
              </select><br/>
 
              <button className="add-btn">ADD ITEM</button>
                   
          </form>
-         <button className="home-btn"><NavLink to='/' className="home-btn-link">HOME</NavLink> </button>
+         <button className="home-btn" onClick={goHome}> HOME</button> 
                 
      </div>
     )

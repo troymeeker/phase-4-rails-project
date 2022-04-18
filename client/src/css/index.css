@@ -253,19 +253,20 @@
   border-radius: 7px;
   background-color: rgb(115, 115, 117);
   color: white;
-  margin: 25px;
-  padding: 6px;
+  width: 100px;
+  margin: 15px;
+  padding: 10px;
   font-family: sans-serif;
   position: relative;
   left: 25%;
 
 }
-.home-btn-link{
+/* .home-btn-link{
   background-color: rgb(115, 115, 117);
   color: white;
-  margin: 15px;
+  margin: 25px;
   padding: 6px;
-}
+} */
 
 .filter-button{
   border-radius: 7px;

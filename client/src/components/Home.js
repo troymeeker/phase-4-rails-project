@@ -7,8 +7,6 @@ function Home({ currentUser, setCurrentUser}){
 
   const [posts, setPosts] = useState([]);
 
-
-  
   useEffect(() => {
     fetch('/posts')
     .then((resp) => resp.json())
@@ -36,13 +34,13 @@ function Home({ currentUser, setCurrentUser}){
  
 
     function handleSortAlpha(){
-      fetch('/posts/order')
+      fetch('/posts_by_order')
        .then((resp) => resp.json())
        .then((posts) => setPosts(posts))
     }
 
     function handleSortPrice(){
-      fetch('/posts/price')
+      fetch('/posts_by_price')
        .then((resp) => resp.json())
        .then((posts) => setPosts(posts))
     }
@@ -59,8 +57,8 @@ function Home({ currentUser, setCurrentUser}){
          
           <button onClick={handleSortPrice} className="filter-button">FILTER BY PRICE</button>
           <button onClick={handleSortAlpha} className="filter-button">FILTER A-Z</button>
-          {/* <h3> #{admin/user} functionality</h3> */}
-        <div>___________________________________________________________________</div>
+         
+          <div>___________________________________________________________________</div>
           
             { posts.map((post) => (
               <PostItem 

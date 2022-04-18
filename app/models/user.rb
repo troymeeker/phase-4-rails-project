@@ -7,10 +7,7 @@ class User < ApplicationRecord
    
     validates :username, presence: true, uniqueness: true, length: { minimum: 3 }
 
-    # def self.most_posts
-    #     User.preload(:posts).all.max_by{|user| user.posts.size}
-    #     User.all.max_by{|user| user.posts.size}
-    # end
+
     
     
  
