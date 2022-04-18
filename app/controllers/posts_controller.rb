@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   end
 
   # # GET /posts/1
+  # get "/posts/:id", to: "posts#show"
   def show
     render json: @post
   end
@@ -56,8 +57,15 @@ class PostsController < ApplicationController
     render json: posts
   end
 
+#get 
+#  def search
   
- 
+#   search = Post.where('item_name LIKE ?', "%#{params[:search]}%")
+#   render json: search
+#  end
+
+
+
 
   private   
     #  Only allow a list of trusted parameters through.
