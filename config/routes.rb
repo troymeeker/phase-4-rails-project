@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :categories, only:[:index, :show]
-  resources :posts , only: [:index,:show, :create, :update, :destroy]
+  resources :posts , only: [:index, :show, :create, :update, :destroy]
   
   get "/me", to: "users#show"
   post "/signup", to: "users#create"

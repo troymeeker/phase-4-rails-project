@@ -60,7 +60,7 @@ if (!authChecked) { return <div>test</div> }
               <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
               <Routes>
                
-                <Route path="/" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
+                <Route path="/" element={<Home currentUser={currentUser} />}/>
                 <Route path="/about" element={<About />}/>
                 <Route path="/new" element={<NewPost onPostAdd={handlePostAdd}/>}/>
                 

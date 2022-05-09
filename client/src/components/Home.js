@@ -1,17 +1,17 @@
-import React, { useState, useEffect} from "react";
+import React, { useEffect, useState} from "react";
 // import NewPost from "./NewPost";
 import PostItem from "./PostItem";
 
 
-function Home({ currentUser, setCurrentUser}){
+function Home({ currentUser, }){
 
-  const [posts, setPosts] = useState([]);
+   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     fetch('/posts')
     .then((resp) => resp.json())
     .then((posts) => setPosts(posts))
-  }, []);
+  }, [setPosts]);
      
 
     function handlePostDelete(id){

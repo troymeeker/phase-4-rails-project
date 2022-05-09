@@ -31,7 +31,7 @@ const Signup = ({setCurrentUser}) => {
             } else {
                 res.json().then((error) => {
                       console.log(error);
-                      debugger;
+                    //   debugger;
                      alert(JSON.stringify(error.error));
                 })
             }
