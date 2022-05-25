@@ -3,7 +3,7 @@ import React, { useEffect, useState} from "react";
 import PostItem from "./PostItem";
 
 
-function Home({ currentUser, }){
+function Home({ currentUser }){
 
    const [posts, setPosts] = useState([]);
 
@@ -52,14 +52,13 @@ function Home({ currentUser, }){
           <h2 id="mylist-header">MyList</h2>
           <h3>Welcome {currentUser.username[0].toUpperCase() + currentUser.username.substring(1)}!</h3> 
           
-          
          </div>
-         
-          <button onClick={handleSortPrice} className="filter-button">FILTER BY PRICE</button>
-          <button onClick={handleSortAlpha} className="filter-button">FILTER A-Z</button>
-         
-          <div>___________________________________________________________________</div>
-          
+         <div className="filter-buttons">
+           <button onClick={handleSortPrice} className="filter">FILTER BY PRICE</button><br/>
+           <button onClick={handleSortAlpha} className="filter-alpha">FILTER A-Z</button>
+         </div>
+          {/* <div className="top-of-items">___________________________________________________________________</div>
+           */}
             { posts.map((post) => (
               <PostItem 
                 key={post.id}
