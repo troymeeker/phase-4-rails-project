@@ -157,9 +157,9 @@
   width: 50vw;
   padding: 8px;
   text-align: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-left: 24vw;
-  
+
 }
 .bottom-line{
   width: 40vw;
