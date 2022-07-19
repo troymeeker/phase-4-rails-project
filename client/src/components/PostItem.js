@@ -61,7 +61,7 @@ const PostItem = ({post, onItemDelete, onEditItem, currentUser}) => {
                 <button onClick={handleFavorite} className="each-post-btn">☆</button>
                 ) } 
           
-            {/* <div className="bottom-line">______________________________________________________________</div> */}
+            <div >_____________________________________________________</div>
         </div>
     );
 }
