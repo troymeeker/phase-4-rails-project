@@ -94,10 +94,10 @@ function NewPost({onPostAdd}){
                  <option id="category_id" value='4'>Free</option>
              </select><br/>
 
-             <button className="add-btn">ADD ITEM</button>
-                  
+             <button className="add-home-btn">ADD ITEM</button>
+              <button className="add-home-btn" onClick={goHome}> HOME</button>      
          </form>
-         <button className="home-btn" onClick={goHome}> HOME</button> 
+        
                 
      </div>
     )
